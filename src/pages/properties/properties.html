@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Properties</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item color="primary" (click)="goAddNewProperty()">
+    <ion-icon name="add" item-left large></ion-icon>Add new property
+  </ion-item>
+
+<ion-card>
+
+  <ion-item>
+    <h2>Property #1</h2>
+    <p>888 Marengo Street Pasadena, Ca 91101</p>
+    <ion-icon color="primary" name="arrow-dropright-circle" large item-end (click)="goPropertyProfile()"></ion-icon>
+  </ion-item>
+
+<div class="map-container">
+<div #map id="map"></div>
+</div>
+  <!-- <img src="assets/img/map.png"> -->
+<!-- 
+  <ion-card-content>
+    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+  </ion-card-content> -->
+
+  <ion-item>
+    <ion-icon name="cash" item-start large style="color: #4cc94c"></ion-icon>
+    <h2>Rent due in (10) days</h2>
+    <p>$3,300</p>
+  </ion-item>
+
+  <ion-item class="border-top">
+    <ion-icon name="text" item-left large color="primary"></ion-icon>
+    <h2>New Message</h2>
+    <p>Hi Kenny, there seems to be a problem with the garage door.</p>
+  </ion-item>
+
+  <ion-item class="border-top">
+    <ion-icon name="build" item-left large style="color: #ffa64c"></ion-icon>
+    <h2>(1) Repair request</h2>
+    <p>Garage door</p>
+  </ion-item>
+
+  <!-- <ion-item class="border-top">
+    <span item-left>18 min</span>
+    <span item-left>(2.6 mi)</span>
+    <button ion-button icon-left clear item-end>
+      <ion-icon name="navigate"></ion-icon>
+      Start
+    </button>
+  </ion-item> -->
+
+  <!-- <ion-row class="border-top">
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col>
+  </ion-row> -->
+
+</ion-card>
+
+
+<ion-card>
+
+  <ion-item>
+    <h2>Property #2</h2>
+    <p>3581 Whistler Avenue El Monte, Ca 91732</p>
+  </ion-item>
+
+  <img src="assets/img/map.png">
+
+  <ion-item>
+    <ion-icon name="cash" item-start large style="color: #4cc94c"></ion-icon>
+    <h2>Rent paid <ion-icon name="checkmark-circle" style="color: #4cc94c"></ion-icon></h2>
+    <p>$2,100</p>
+  </ion-item>
+
+  <!-- <ion-item class="border-top">
+    <span item-left>30 min</span>
+    <span item-left>(8.4 mi)</span>
+    <button ion-button icon-left clear item-end>
+      <ion-icon name="navigate"></ion-icon>
+      Start
+    </button>
+  </ion-item> -->
+
+</ion-card>
+
+</ion-content>

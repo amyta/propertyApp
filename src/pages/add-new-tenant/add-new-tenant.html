@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add New Tenant</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="tenant-icon" text-center >
+    <img src="assets/img/map.png">
+    <ion-item class="position-bottom" style="background: rgba(204, 204, 204, 0.5);" (click)="goAddNewTenant()">
+      <ion-icon name="add" item-left large></ion-icon>Add image
+    </ion-item>
+  </div>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>First Name</ion-label>
+      <ion-input type="address" placeholder="First Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Last Name</ion-label>
+      <ion-input type="rent" placeholder="Last Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Phone Number</ion-label>
+      <ion-input type="rent" placeholder="Phone Number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input type="rent" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Driver License</ion-label>
+      <ion-input type="rent" placeholder="Driver License"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Property</ion-label>
+      <ion-select [(ngModel)]="properties">
+        <ion-option value="Property #1">Property #1</ion-option>
+        <ion-option value="n64">Property #2</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

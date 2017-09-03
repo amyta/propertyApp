@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Rent
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Overdue</ion-list-header>
+    <ion-item>Property #3
+      <span item-end>$2,000</span>
+      <p>Past due (2) days</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>Due</ion-list-header>
+    <ion-item>Property #1
+      <span item-end>$3,300</span>
+      <p>Due in (10) days</p>
+    </ion-item>
+    <!-- <ion-item>Payment History
+      <span class="right">2017</span>
+    </ion-item> -->
+    <ion-item>
+      Payment History
+      <span class="right">2017</span>
+      <ion-row class="row-styling">
+        <ion-col col-1 *ngFor="let month of months;let i=index">{{months[i]}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-1 *ngFor="let month of months;let i=index">
+          <ion-icon name="checkmark" style="color: #4cc94c"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>Paid</ion-list-header>
+    <ion-item>Property #2<span item-end>$2,100</span></ion-item>
+  </ion-list>
+</ion-content>

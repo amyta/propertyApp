@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add New Property</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="property-profile" text-center >
+    <img src="assets/img/map.png">
+    <ion-item class="position-bottom" style="background: rgba(204, 204, 204, 0.5);" (click)="goAddNewTenant()">
+      <ion-icon name="add" item-left large></ion-icon>Add image
+    </ion-item>
+  </div>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Address</ion-label>
+      <ion-input type="address" placeholder="Address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Rent Amount</ion-label>
+      <ion-input type="rent" placeholder="Rent Amount"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Set Reminder</ion-label>
+      <ion-input type="rent" placeholder="Days"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Rent Due Date</ion-label>
+      <ion-input type="rent" placeholder="Rent Due Date"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Tenant</ion-label>
+      <ion-select [(ngModel)]="tenants" multiple="true">
+        <ion-option value="Add new tenant">Add new tenant</ion-option>
+        <ion-option value="n64">John Smith</ion-option>
+        <ion-option value="ps">Sara</ion-option>
+        <ion-option value="genesis">Sam</ion-option>
+        <ion-option value="saturn">Nicole</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
