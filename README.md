@@ -11,14 +11,14 @@ $ npm install -g ionic cordova
 
 ### Running the app
 
-To run `propertyApp` in your server, run:
+To run `propertyApp` in your browser, cd into `propertyApp` and run:
 
 ```bash
 $ npm install
 $ ionic serve
 ```
 
-Then, to run it, cd into `propertyApp` and run:
+For iOS or Android testing, run:
 
 ```bash
 $ ionic cordova platform add ios
