@@ -1,22 +1,18 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Tenant Profile</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content>
-  <div class="tenant-icon" text-center >
-    <img src="assets/img/map.png">
-    <ion-item class="position-bottom" style="background: rgba(204, 204, 204, 0.5);" (click)="goAddNewTenant()">
-      <ion-icon name="add" item-left large></ion-icon>Add image
-    </ion-item>
+  <div class="tenant-profile">
+    <div class="overlay">
+      <button ion-button clear (click)="goBack()">
+        <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>
+      </button>
+      <p class="title" text-center>John Smith</p>
+      <!-- <ion-item class="position-bottom" style="background: rgba(204, 204, 204, 0.5);" (click)="goAddNewTenant()">
+        <ion-icon name="add" item-left large></ion-icon>Add image
+      </ion-item> -->
+    </div>
   </div>
 
   <ion-list>
-    <ion-item>
+    <!-- <ion-item>
       <p>First Name</p>
       <h2>John</h2>
     </ion-item>
@@ -24,7 +20,7 @@
     <ion-item>
       <p>Last Name</p>
       <h2>Smith</h2>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item>
       <p>Phone Number</p>
@@ -42,7 +38,7 @@
     </ion-item>
 
     <ion-item>
-      <p>Property</p>
+      <p>Renting</p>
       <h2>Property #1</h2>
     </ion-item>
 

@@ -14,4 +14,13 @@ page-rent {
   .select-property {
     color: gray;
   }
+
+  .toolbar-background.toolbar-background-ios {
+    background: white;
+    border: none;
+  }
+
+  .toolbar-title.toolbar-title-ios {
+    font-weight: 400;
+  }
 }

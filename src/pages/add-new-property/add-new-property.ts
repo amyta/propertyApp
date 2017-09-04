@@ -16,4 +16,8 @@ export class AddNewPropertyPage {
     console.log('ionViewDidLoad AddNewPropertyPage');
   }
 
+  public goBack() {
+    this.navCtrl.pop()
+  }
+
 }

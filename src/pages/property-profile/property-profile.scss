@@ -1,7 +1,28 @@
 page-property-profile {
   .property-profile {
-    height: 175px;
-    position: relative;
+    background: url('https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w560x373.jpg?v=15') center;
+    height: 200px;
+
+    p.title {
+        color: white;
+        font-size: 1.7rem;
+        padding-top: 25%;
+        margin-bottom: 0;
+    }
+
+    p {
+      margin: 0;
+      color: white;
+    }
+
+    ion-icon.icon.icon-ios.ion-ios-arrow-back {
+      color: white;
+    }
+  }
+
+  .overlay {
+    height: 200px;
+    background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.8));
   }
 
   .position-bottom {

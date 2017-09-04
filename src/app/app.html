@@ -1,16 +1,26 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" class="side-menu">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <div class="account-profile" text-center>
+        <h2>Kenny</h2>
+        <p>Owner</p>
+      </div>
     </ion-toolbar>
-  </ion-header>
+  </ion-header>  
 
   <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+    <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let p of pages" style="background-color: #fafafa" (click)="openPage(p)">
+      {{p.title}}
       </button>
     </ion-list>
+
+    <ion-footer class="settings-menu">
+      <span menuClose (click)="goSettingsPage()">
+      <ion-icon name="settings"></ion-icon>
+      <p>Settings</p>
+      </span>
+    </ion-footer>
   </ion-content>
 
 </ion-menu>

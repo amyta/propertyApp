@@ -1,31 +1,16 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Add New Property</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content>
-  <div class="property-profile" text-center >
-    <img src="assets/img/map.png">
-    <ion-item class="position-bottom" style="background: rgba(204, 204, 204, 0.5);" (click)="goAddNewTenant()">
-      <ion-icon name="add" item-left large></ion-icon>Add image
-    </ion-item>
-  </div>
+  <div class="property-profile">
+    <div class="overlay">
+      <button ion-button clear (click)="goBack()">
+        <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>
+      </button>
+      <ion-input type="name" placeholder="Property Name" class="title"></ion-input>
+      <ion-input type="address" placeholder="Address" class="subtitle"></ion-input>
+    </div>
+  </div> 
 
   <ion-list>
-    <ion-item>
-      <ion-label stacked>Name</ion-label>
-      <ion-input type="address" placeholder="Name"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Address</ion-label>
-      <ion-input type="address" placeholder="Address"></ion-input>
-    </ion-item>
-
+    
     <ion-item>
       <ion-label stacked>Rent Amount</ion-label>
       <ion-input type="rent" placeholder="Rent Amount"></ion-input>
@@ -38,7 +23,6 @@
 
     <ion-item>
       <ion-label stacked>Rent Due Date</ion-label>
-      <!-- <ion-input type="rent" placeholder="Rent Due Date"></ion-input> -->
       <ion-datetime displayFormat="D" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
 

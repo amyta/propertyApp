@@ -26,8 +26,7 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'Homepage', component: TabsPage },
-      { title: 'Settings', component: SettingsPage },
+      { title: 'Dashboard', component: TabsPage },
       { title: 'Account', component: AccountPage }
     ];
   }
@@ -36,5 +35,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  public goSettingsPage() {
+    this.nav.setRoot(SettingsPage);
   }
 }

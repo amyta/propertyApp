@@ -25207,9 +25207,61 @@ ion-navbar.toolbar {
   background-color: #fafafa;
 }
 
-page-add-new-property .property-profile {
-  height: 175px;
+.side-menu .toolbar-background.toolbar-background-ios {
+  background: #03A9F4;
+}
+
+.side-menu .account-profile {
+  height: 150px;
   position: relative;
+  color: white;
+}
+
+.side-menu .account-profile h2 {
+  padding-top: 10%;
+}
+
+.side-menu .settings-menu {
+  padding-left: 16px;
+  padding-bottom: 20px;
+  font-size: 1.7rem;
+  display: inline-block;
+}
+
+.side-menu .settings-menu p {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+page-add-new-property .property-profile {
+  height: 200px;
+}
+
+page-add-new-property .property-profile ion-input.title {
+  font-size: 1.7rem;
+  padding-top: 20%;
+  margin: 0;
+  text-align: center;
+}
+
+page-add-new-property .property-profile ion-input.subtitle {
+  margin: 0;
+}
+
+page-add-new-property .property-profile input.text-input.text-input-ios {
+  text-align: center;
+  margin: 0 0 10px 0;
+  color: white;
+}
+
+page-add-new-property .property-profile ion-icon.icon.icon-ios.ion-ios-arrow-back {
+  color: white;
+}
+
+page-add-new-property .overlay {
+  height: 200px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), to(rgba(0, 0, 0, 0.8)));
+  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.8));
 }
 
 page-add-new-property .position-bottom {
@@ -25273,47 +25325,59 @@ page-properties #map {
   height: 100%;
 }
 
-page-properties ion-card {
-  position: relative;
-  text-align: center;
-}
-
-page-properties ion-card img {
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);
-}
-
-page-properties .image {
+page-properties .property-picture {
   height: 150px;
+  width: 90%;
+  left: 5%;
+  position: relative;
+  top: 15px;
+  border-radius: 3px;
 }
 
-page-properties .card-title {
-  position: absolute;
-  top: 20%;
+page-properties .property-picture h2 {
+  color: white;
   font-size: 1.7rem;
-  width: 100%;
-  color: #fff;
+  padding-top: 20%;
+  padding-bottom: 10px;
+  margin: 0;
 }
 
-page-properties .card-subtitle {
-  font-size: 1.0em;
-  position: absolute;
-  top: 30%;
-  width: 100%;
-  color: #fff;
-}
-
-page-properties .card-subtitle p {
-  padding-bottom: 5px;
+page-properties .property-picture p {
+  margin: 0;
   color: white;
 }
 
+page-properties .overlay {
+  height: inherit;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), to(rgba(0, 0, 0, 0.8)));
+  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.8));
+}
+
 page-property-profile .property-profile {
-  height: 175px;
-  position: relative;
+  background: url("https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w560x373.jpg?v=15") center;
+  height: 200px;
+}
+
+page-property-profile .property-profile p.title {
+  color: white;
+  font-size: 1.7rem;
+  padding-top: 25%;
+  margin-bottom: 0;
+}
+
+page-property-profile .property-profile p {
+  margin: 0;
+  color: white;
+}
+
+page-property-profile .property-profile ion-icon.icon.icon-ios.ion-ios-arrow-back {
+  color: white;
+}
+
+page-property-profile .overlay {
+  height: 200px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), to(rgba(0, 0, 0, 0.8)));
+  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.8));
 }
 
 page-property-profile .position-bottom {
@@ -25337,6 +25401,15 @@ page-rent .select-property {
   color: gray;
 }
 
+page-rent .toolbar-background.toolbar-background-ios {
+  background: white;
+  border: none;
+}
+
+page-rent .toolbar-title.toolbar-title-ios {
+  font-weight: 400;
+}
+
 page-repair-request h2.comments {
   white-space: normal;
 }
@@ -25358,9 +25431,31 @@ page-repairs ion-item.item.item-block.item-md {
   border-bottom: 0.55px solid #c8c7cc;
 }
 
-page-tenant-profile .tenant-icon {
-  height: 175px;
-  position: relative;
+page-tenant-profile .tenant-profile {
+  background: url("https://pbs.twimg.com/profile_images/856266617537273856/pfYJlHzP_400x400.jpg") center;
+  height: 200px;
+}
+
+page-tenant-profile .tenant-profile p.title {
+  color: white;
+  font-size: 1.7rem;
+  padding-top: 25%;
+  margin-bottom: 0;
+}
+
+page-tenant-profile .tenant-profile p {
+  margin: 0;
+  color: white;
+}
+
+page-tenant-profile .tenant-profile ion-icon.icon.icon-ios.ion-ios-arrow-back {
+  color: white;
+}
+
+page-tenant-profile .overlay {
+  height: 200px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, transparent), to(rgba(0, 0, 0, 0.8)));
+  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.8));
 }
 
 page-tenant-profile .position-bottom {

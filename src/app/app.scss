@@ -22,4 +22,30 @@
 
 .content-ios {
 		background-color: #fafafa;
+}
+
+.side-menu {
+	.toolbar-background.toolbar-background-ios {
+		background: #03A9F4;
 	}
+
+	.account-profile {
+		height: 150px;
+		position: relative;
+		color: white;
+			h2 {
+				padding-top: 10%;
+			}
+	}
+
+	.settings-menu {
+		padding-left: 16px;
+		padding-bottom: 20px;
+		font-size: 1.7rem;
+		display: inline-block;
+			p {
+				display: inline-block;
+				padding-left: 10px;
+			}
+	}
+}

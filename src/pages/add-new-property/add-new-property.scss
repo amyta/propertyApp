@@ -1,7 +1,31 @@
 page-add-new-property {
   .property-profile {
-    height: 175px;
-    position: relative;
+    height: 200px;
+    ion-input.title {
+      font-size: 1.7rem;
+      padding-top: 20%;
+      margin: 0;
+      text-align: center;
+    }
+
+    ion-input.subtitle {
+      margin: 0;
+    }
+
+    input.text-input.text-input-ios {
+      text-align: center;
+      margin: 0 0 10px 0;
+      color: white;
+    }
+
+    ion-icon.icon.icon-ios.ion-ios-arrow-back {
+      color: white;
+    }
+  }
+
+  .overlay {
+    height: 200px;
+    background: linear-gradient(180deg,transparent 0,rgba(0,0,0,.8));
   }
 
   .position-bottom {

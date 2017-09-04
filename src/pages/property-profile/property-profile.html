@@ -1,26 +1,20 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Property #1</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
  <ion-content>
-  <div class="property-profile" text-center >
-    <img src="assets/img/map.png">
-    <ion-item class="position-bottom" style="background: rgba(204, 204, 204, 0.5);" (click)="goAddNewTenant()">
-      <ion-icon name="add" item-left large></ion-icon>Add image
-    </ion-item>
-  </div>
+   <div class="property-profile">
+    <div class="overlay">
+      <button ion-button clear (click)="goBack()">
+        <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>
+      </button>
+      <p class="title" text-center>Property #1</p>
+      <p text-center>888 Marengo Street Pasadena, Ca 91101</p>
+    </div>
+  </div> 
 
   <ion-list>
-
+<!-- 
     <ion-item>
       <p>Address</p>
       <h2>888 Marengo Street Pasadena, Ca 91101</h2>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item>
       <p>Rent Amount</p>
@@ -43,4 +37,4 @@
     </ion-item>
 
   </ion-list>
-</ion-content> 
+</ion-content>

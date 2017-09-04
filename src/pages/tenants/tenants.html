@@ -1,8 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Tenants
-    </ion-title>
+     <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Tenants</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -23,10 +24,6 @@
         <p>Rent Due: 09/19/17</p>
       </ion-item>
       <ion-item-options>
-        <button ion-button color="light" icon-start (click)="goTenantProfile()">
-          <ion-icon name="ios-more"></ion-icon>
-          View Profile
-        </button>
         <button ion-button color="primary" icon-start>
           <ion-icon name="text"></ion-icon>
           Text
@@ -51,10 +48,6 @@
         <p>Rent Due: 09/05/17</p>
       </ion-item>
       <ion-item-options>
-        <button ion-button color="light" icon-start>
-          <ion-icon name="ios-more"></ion-icon>
-          More
-        </button>
         <button ion-button color="primary" icon-start>
           <ion-icon name="text"></ion-icon>
           Text

@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TenantProfilePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-tenant-profile',
   templateUrl: 'tenant-profile.html',
@@ -19,6 +12,10 @@ export class TenantProfilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TenantProfilePage');
+  }
+
+  public goBack() {
+    this.navCtrl.pop()
   }
 
 }
