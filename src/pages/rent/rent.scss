@@ -1,10 +1,17 @@
 page-rent {
-  .border-top {
-        border-top: 1px solid #c9c9c9;
-    }
-
   .row-styling {
-    // border-top: 1px solid lightgray;
     margin-top: 10px;
+  }
+
+  ion-item.item.item-block.item-ios,
+  ion-item.item.item-block.item-md,
+  ion-list-header.item.item-ios.list-header.list-header-ios,
+  ion-list-header.item.item-md.list-header.list-header-md {
+    border-bottom: 0.55px solid #c8c7cc;
+    border-top: none;
+  }
+
+  .select-property {
+    color: gray;
   }
 }

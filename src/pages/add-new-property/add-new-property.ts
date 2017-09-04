@@ -6,7 +6,8 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-new-property.html',
 })
 export class AddNewPropertyPage {
-  public tenants: string = "Add new tenant";
+  public tenants: string = "Vacant";
+  public myDate;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

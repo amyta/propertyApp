@@ -25273,6 +25273,44 @@ page-properties #map {
   height: 100%;
 }
 
+page-properties ion-card {
+  position: relative;
+  text-align: center;
+}
+
+page-properties ion-card img {
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+page-properties .image {
+  height: 150px;
+}
+
+page-properties .card-title {
+  position: absolute;
+  top: 20%;
+  font-size: 1.7rem;
+  width: 100%;
+  color: #fff;
+}
+
+page-properties .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  color: #fff;
+}
+
+page-properties .card-subtitle p {
+  padding-bottom: 5px;
+  color: white;
+}
+
 page-property-profile .property-profile {
   height: 175px;
   position: relative;
@@ -25283,12 +25321,41 @@ page-property-profile .position-bottom {
   bottom: 0;
 }
 
-page-rent .border-top {
-  border-top: 1px solid #c9c9c9;
-}
-
 page-rent .row-styling {
   margin-top: 10px;
+}
+
+page-rent ion-item.item.item-block.item-ios,
+page-rent ion-item.item.item-block.item-md,
+page-rent ion-list-header.item.item-ios.list-header.list-header-ios,
+page-rent ion-list-header.item.item-md.list-header.list-header-md {
+  border-bottom: 0.55px solid #c8c7cc;
+  border-top: none;
+}
+
+page-rent .select-property {
+  color: gray;
+}
+
+page-repair-request h2.comments {
+  white-space: normal;
+}
+
+page-repair-request ion-item.item.item-block.item-ios,
+page-repair-request ion-item.item.item-block.item-md {
+  border-bottom: 0.55px solid #c8c7cc;
+}
+
+page-repair-request p.requestor,
+page-repair-request p.date-requested,
+page-repair-request p.property {
+  font-size: 1.2rem;
+  color: black;
+}
+
+page-repairs ion-item.item.item-block.item-ios,
+page-repairs ion-item.item.item-block.item-md {
+  border-bottom: 0.55px solid #c8c7cc;
 }
 
 page-tenant-profile .tenant-icon {

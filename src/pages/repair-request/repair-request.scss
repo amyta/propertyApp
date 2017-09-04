@@ -1,0 +1,17 @@
+page-repair-request {
+    h2.comments {
+        white-space: normal;
+    }
+
+    ion-item.item.item-block.item-ios,
+    ion-item.item.item-block.item-md {
+        border-bottom: 0.55px solid #c8c7cc;
+    }
+
+    p.requestor,
+    p.date-requested,
+    p.property {
+        font-size: 1.2rem;
+        color: black;
+    }
+}

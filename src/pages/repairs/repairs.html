@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar no-border-bottom>
+    <ion-title>Repairs</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="repairStatus">
+      <ion-segment-button value="new">
+        New
+      </ion-segment-button>
+      <ion-segment-button value="in-progress">
+        In progress
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        Completed
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+ <div [ngSwitch]="repairStatus">
+    <ion-list no-lines *ngSwitchCase="'new'">
+      <ion-item-sliding #item>
+        <ion-item (click)="goRepairRequest()">
+          <h2>Garage door</h2>
+          <h3>Property #1</h3>
+          <p>Date Submitted: 09/02/17</p>
+        </ion-item>
+        <ion-item-options side="left" (ionSwipe)="changeRepairStatus(status)">
+          <button ion-button style="background-color: #ffa64c">In Progress</button>
+        </ion-item-options>
+
+        <ion-item-options side="right" (ionSwipe)="changeRepairStatus(status)">
+          <button ion-button style="background-color: #4cc94c">Completed</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding #item>
+        <ion-item (click)="goRepairRequest()">
+          <h2>Air Conditioning</h2>
+          <h3>Property #1</h3>
+          <p>Date Submitted: 09/02/17</p>
+        </ion-item>
+        <ion-item-options side="left" (ionSwipe)="changeRepairStatus(status)">
+          <button ion-button style="background-color: #ffa64c">In Progress</button>
+        </ion-item-options>
+
+        <ion-item-options side="right" (ionSwipe)="changeRepairStatus(status)">
+          <button ion-button style="background-color: #4cc94c">Completed</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'in-progress'">
+      <ion-item-sliding #item>
+        <ion-item (click)="goRepairRequest()">
+          <h2>Garage door</h2>
+          <h3>Property #1</h3>
+          <p>Date Submitted: 09/02/17</p>
+        </ion-item>
+        <ion-item-options side="left" (ionSwipe)="changeRepairStatus(status)">
+          <button ion-button color="primary">New</button>
+        </ion-item-options>
+
+        <ion-item-options side="right" (ionSwipe)="changeRepairStatus(status)">
+          <button ion-button style="background-color: #4cc94c">Completed</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'completed'">
+      <ion-item-sliding #item>
+        <ion-item (click)="goRepairRequest()">
+          <h2>Garage door</h2>
+          <h3>Property #1</h3>
+          <p>Date Submitted: 09/02/17</p>
+        </ion-item>
+        <ion-item-options side="left" (ionSwipe)="changeRepairStatus(status)">
+          <button ion-button style="background-color: #ffa64c">In Progress</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>

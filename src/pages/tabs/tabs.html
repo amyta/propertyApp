@@ -1,6 +1,6 @@
-<ion-tabs>
-  <!-- <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab> -->
-  <ion-tab [root]="tab2Root" tabTitle="Properties" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Rent" tabIcon="cash"></ion-tab>
+<ion-tabs [selectedIndex]="tabsIndex">
+  <ion-tab [root]="tab1Root" tabTitle="Properties" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Rent" tabIcon="cash" tabBadge="2" tabBadgeStyle="danger"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Repairs" tabIcon="build"></ion-tab>
   <ion-tab [root]="tab4Root" tabTitle="Tenants" tabIcon="people"></ion-tab>
 </ion-tabs>

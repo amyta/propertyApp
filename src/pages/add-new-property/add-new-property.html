@@ -16,6 +16,10 @@
   </div>
 
   <ion-list>
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="address" placeholder="Name"></ion-input>
+    </ion-item>
 
     <ion-item>
       <ion-label stacked>Address</ion-label>
@@ -28,19 +32,20 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Set Reminder</ion-label>
-      <ion-input type="rent" placeholder="Days"></ion-input>
+      <ion-label stacked>Set Reminder For Rent Due</ion-label>
+      <ion-input type="rent" placeholder="Days Before Due"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Rent Due Date</ion-label>
-      <ion-input type="rent" placeholder="Rent Due Date"></ion-input>
+      <!-- <ion-input type="rent" placeholder="Rent Due Date"></ion-input> -->
+      <ion-datetime displayFormat="D" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Tenant</ion-label>
       <ion-select [(ngModel)]="tenants" multiple="true">
-        <ion-option value="Add new tenant">Add new tenant</ion-option>
+        <ion-option value="Vacant">Vacant</ion-option>
         <ion-option value="n64">John Smith</ion-option>
         <ion-option value="ps">Sara</ion-option>
         <ion-option value="genesis">Sam</ion-option>

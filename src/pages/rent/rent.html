@@ -7,27 +7,50 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Overdue</ion-list-header>
-    <ion-item>Property #3
-      <span item-end>$2,000</span>
-      <p>Past due (2) days</p>
+  <ion-list no-lines>
+    <ion-item><ion-icon name="close-circle" color="danger" item-start></ion-icon>Property #3
+      <span item-end>$2,100</span>
+      <p>Overdue 2 days: 09/01/17</p>
     </ion-item>
-  </ion-list>
+    
+    <ion-item color="danger" style="font-size:1.5rem">
+      <ion-icon name="notifications" item-left></ion-icon>Send Notice of Overdue
+    </ion-item>
 
-  <ion-list>
-    <ion-list-header>Due</ion-list-header>
-    <ion-item>Property #1
+    <ion-item [ngClass]="{'select-property': select === true}">
+      <ion-icon name="remove-circle" style="color: #ffd24f" *ngIf="!select" item-start></ion-icon>Property #1
       <span item-end>$3,300</span>
-      <p>Due in (10) days</p>
+      <p>Due in 10 days: 09/19/17</p>
+      <ion-checkbox *ngIf="select" color="dark" checked="false"></ion-checkbox>
     </ion-item>
-    <!-- <ion-item>Payment History
-      <span class="right">2017</span>
-    </ion-item> -->
+
+    <ion-item [ngClass]="{'select-property': select === true}">
+      <ion-icon name="remove-circle" style="color: #ffd24f" *ngIf="!select" item-start></ion-icon>Property #4
+      <span item-end>$1,300</span>
+      <p>Due in 5 days: 09/14/17</p>
+      <ion-checkbox *ngIf="select" color="dark" checked="false"></ion-checkbox>
+    </ion-item>
+
+    <ion-item style="background-color: #ffd24f; color: white; font-size: 1.5rem" (click)="sendReminder()">
+      <ion-icon name="notifications" item-left></ion-icon>Send Reminder
+    </ion-item>
+
     <ion-item>
-      Payment History
-      <span class="right">2017</span>
-      <ion-row class="row-styling">
+      <ion-icon name="checkmark-circle" style="color: #4cc94c" item-start></ion-icon>
+      Property #2
+      <span item-end>$2,100</span>
+      <p>Paid: 09/02/17</p>
+    </ion-item>
+    <!-- <ion-item class="border-top">
+      <ion-label>Payment History</ion-label>
+      <ion-select [(ngModel)]="year">
+        <ion-option value="2017">2017</ion-option>
+        <ion-option value="2016">2016</ion-option>
+        <ion-option value="2015">2015</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-row style="color: gray" class="row-styling">
         <ion-col col-1 *ngFor="let month of months;let i=index">{{months[i]}}</ion-col>
       </ion-row>
       <ion-row>
@@ -35,11 +58,6 @@
           <ion-icon name="checkmark" style="color: #4cc94c"></ion-icon>
         </ion-col>
       </ion-row>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header>Paid</ion-list-header>
-    <ion-item>Property #2<span item-end>$2,100</span></ion-item>
+    </ion-item> -->
   </ion-list>
 </ion-content>
