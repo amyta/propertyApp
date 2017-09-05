@@ -24,14 +24,14 @@
   </div> -->
   <ion-card>
 
-    <ion-item style="height: 150px; background: #d3b53d" (click)="goPropertyProfile()">
-      <h2 style="color: white">Property #1</h2>
-      <p style="color: white">888 Marengo Street Pasadena, Ca 91101</p>
+    <div class="property-container" (click)="goPropertyProfile()">
+      <h2>Property #1</h2>
+      <p>888 Marengo Street Pasadena, Ca 91101</p>
       <!-- <ion-icon style="color: white" name="arrow-forward" large item-end></ion-icon>    -->
-    </ion-item> 
+    </div> 
 
     <ion-item class="border-top" (click)="goRootPage(1)">
-      <h2 style="color: #d3b53d">Rent due in (10) days</h2>
+      <h2 style="color: #ffa64c">Rent due in (10) days</h2>
       <p>$3,300</p> 
     </ion-item>
 
@@ -47,8 +47,8 @@
  
      <ion-row class="border-top" text-center>
       <ion-col>
-        <button ion-button icon-left clear small style="color: #ffa64c" (click)="goRootPage(2)">
-          <ion-icon name="build" style="color: #ffa64c"></ion-icon>
+        <button ion-button icon-left clear small (click)="goRootPage(2)">
+          <ion-icon name="build"></ion-icon>
           <div>1 repair request</div>
         </button>
       </ion-col>
@@ -63,11 +63,11 @@
   </ion-card>
 
   <ion-card>
-    <ion-item style="height: 150px; background: #4cc94c" (click)="goPropertyProfile()">
-      <h2 style="color: white">Property #2</h2>
-      <p style="color: white">3581 Whistler Avenue El Monte, Ca 91732</p>
+    <div class="property-container-2" (click)="goPropertyProfile()">
+      <h2>Property #2</h2>
+      <p>3581 Whistler Avenue El Monte, Ca 91732</p>
       <!-- <ion-icon style="color: white" name="arrow-dropright-circle" large (click)="goPropertyProfile()" item-end></ion-icon>   -->
-    </ion-item>
+    </div>
 
     <ion-item class="border-top" (click)="goRootPage(1)">
       <!-- <ion-icon name="checkmark-circle" style="color: #4cc94c" item-start></ion-icon> -->

@@ -4,20 +4,26 @@ page-tenant-profile {
     height: 200px;
 
     p.title {
-        color: white;
-        font-size: 1.7rem;
-        padding-top: 25%;
-        margin-bottom: 0;
+      color: white;
+      font-size: 1.7rem;
+      padding-top: 25%;
+      margin-bottom: 0;
     }
 
     p {
       margin: 0;
       color: white;
     }
+  }
 
-    ion-icon.icon.icon-ios.ion-ios-arrow-back {
-      color: white;
-    }
+  ion-icon.icon.icon-ios.ion-ios-arrow-back,
+  ion-icon.icon.icon-md.ion-md-arrow-back {
+    color: white;
+  }
+
+  ion-icon.icon.icon-ios,
+  ion-icon.icon.icon-md  {
+    color: gray;
   }
 
   .overlay {
@@ -28,5 +34,9 @@ page-tenant-profile {
   .position-bottom {
     position: absolute;
     bottom: 0;
+  }
+
+  .repair-date {
+    color: gray;
   }
 }

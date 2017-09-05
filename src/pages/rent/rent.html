@@ -9,38 +9,41 @@
 
 <ion-content>
   <ion-list no-lines>
-    <ion-item><ion-icon name="close-circle" color="danger" item-start></ion-icon>Property #3
-      <span item-end>$2,100</span>
-      <p>Overdue 2 days: 09/01/17</p>
-    </ion-item>
-    
     <ion-item color="danger" style="font-size:1.5rem">
       <ion-icon name="notifications" item-left></ion-icon>Send Notice of Overdue
     </ion-item>
 
-    <ion-item [ngClass]="{'select-property': select === true}">
-      <ion-icon name="remove-circle" style="color: #ffd24f" *ngIf="!select" item-start></ion-icon>Property #1
-      <span item-end>$3,300</span>
-      <p>Due in 10 days: 09/19/17</p>
-      <ion-checkbox *ngIf="select" color="dark" checked="false"></ion-checkbox>
+    <ion-item>
+      <p class="red">PAST DUE</p>
+      Property #3
+      <span class="right">$2,100</span>
+      <p>2 days</p>
     </ion-item>
 
-    <ion-item [ngClass]="{'select-property': select === true}">
-      <ion-icon name="remove-circle" style="color: #ffd24f" *ngIf="!select" item-start></ion-icon>Property #4
-      <span item-end>$1,300</span>
-      <p>Due in 5 days: 09/14/17</p>
-      <ion-checkbox *ngIf="select" color="dark" checked="false"></ion-checkbox>
-    </ion-item>
-
-    <ion-item style="background-color: #ffd24f; color: white; font-size: 1.5rem" (click)="sendReminder()">
+    <ion-item style="background-color: #ffa64c; color: white; font-size: 1.5rem" (click)="sendReminder()">
       <ion-icon name="notifications" item-left></ion-icon>Send Reminder
     </ion-item>
 
+    <ion-item [ngClass]="{'select-property': select === true}">
+      <p class="orange">DUE</p>
+      Property #4
+      <span class="right">$1,300</span>
+      <p>09/14/17</p>
+      <ion-checkbox *ngIf="select" color="dark" checked="false"></ion-checkbox>
+    </ion-item>
+
+    <ion-item [ngClass]="{'select-property': select === true}">
+      <p class="orange">DUE</p>
+      Property #1
+      <span class="right">$3,300</span>
+      <p>09/19/17</p>
+      <ion-checkbox *ngIf="select" color="dark" checked="false"></ion-checkbox>
+    </ion-item>
+
     <ion-item>
-      <ion-icon name="checkmark-circle" style="color: #4cc94c" item-start></ion-icon>
+      <p class="green">PAID</p> 
       Property #2
-      <span item-end>$2,100</span>
-      <p>Paid: 09/02/17</p>
+      <span class="right">$2,100</span>
     </ion-item>
     <!-- <ion-item class="border-top">
       <ion-label>Payment History</ion-label>

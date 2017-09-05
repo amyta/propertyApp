@@ -1,25 +1,38 @@
-
-<ion-header>
-
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>Account</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content>
-  Email
-  Phone Number
-  Bank Account
-  - add
-  - change
-  - delete
-  Picture
+  <div class="account-profile">
+    <button ion-button menuToggle clear icon-only>
+      <ion-icon name='menu' style="color: white"></ion-icon>
+    </button>
+    <p class="account-icon" text-center><ion-icon name="contact" style="font-size: 6em"></ion-icon></p>
+    <p class="title" text-center>Kenny</p>
+    <p text-center>kenny@gmail.com</p>
+  </div> 
 
-  Update details
+  <ion-list no-lines>
+    <ion-list-header>
+      Account
+    </ion-list-header>
+
+    <ion-item (click)="goUpdatePhoneNumberPage()">
+      <h2>Phone Number</h2>
+    </ion-item>
+
+    <ion-item>
+      <h2>Bank Account</h2>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-list no-lines>
+    <ion-item>
+      <h2>Support</h2>
+    </ion-item>
+
+    <ion-item>
+      <h2>Logout</h2>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

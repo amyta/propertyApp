@@ -5,6 +5,7 @@
         <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>
       </button>
       <p class="title" text-center>John Smith</p>
+      <p text-center>Tenant</p>
       <!-- <ion-item class="position-bottom" style="background: rgba(204, 204, 204, 0.5);" (click)="goAddNewTenant()">
         <ion-icon name="add" item-left large></ion-icon>Add image
       </ion-item> -->
@@ -12,35 +13,42 @@
   </div>
 
   <ion-list>
-    <!-- <ion-item>
-      <p>First Name</p>
-      <h2>John</h2>
-    </ion-item>
-
     <ion-item>
-      <p>Last Name</p>
-      <h2>Smith</h2>
-    </ion-item> -->
-
-    <ion-item>
+      <ion-icon name="call" ios="ios-call-outline" item-start></ion-icon>
       <p>Phone Number</p>
       <h2>(626) 555-5555</h2>
     </ion-item>
 
     <ion-item>
+      <ion-icon name="mail" ios="ios-mail-outline" item-start></ion-icon>
       <p>Email</p>
       <h2>johnsmith@gmail.com</h2>
     </ion-item>
 
     <ion-item>
+      <ion-icon name="document" ios="ios-document-outline" item-start></ion-icon>
       <p>Driver License No.</p>
       <h2>F324A97</h2>
     </ion-item>
 
     <ion-item>
+      <ion-icon name="home" ios="ios-home-outline" item-start></ion-icon>
       <p>Renting</p>
       <h2>Property #1</h2>
     </ion-item>
 
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Repair Requests
+      <span class="right">See All</span>
+    </ion-list-header>
+    <ion-item (click)="goRepairRequest()">Garage Door
+      <span item-end class="repair-date">09/02/17</span>
+    </ion-item>
+    <ion-item (click)="goRepairRequest()">Air conditioner
+      <span item-end class="repair-date">09/02/17</span>
+    </ion-item>
   </ion-list>
 </ion-content>

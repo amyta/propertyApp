@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AccountPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { UpdatePhoneNumberPage } from '../update-phone-number/update-phone-number';
 
 @Component({
   selector: 'page-account',
@@ -19,6 +13,10 @@ export class AccountPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AccountPage');
+  }
+
+  public goUpdatePhoneNumberPage() {
+    this.navCtrl.push(UpdatePhoneNumberPage);
   }
 
 }

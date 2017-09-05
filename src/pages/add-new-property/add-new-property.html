@@ -27,14 +27,23 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Tenant</ion-label>
+      <span class="label">Tenant</span>
+      <ion-searchbar (ionInput)="searchTenant($event)"></ion-searchbar>
+      <div class="scrollbar">
+        <ion-list>
+          <ion-item *ngFor="let tenant of tenants">
+            {{ tenant }}
+          </ion-item>
+        </ion-list>
+      </div>
+      <!-- <ion-label stacked>Tenant</ion-label>
       <ion-select [(ngModel)]="tenants" multiple="true">
         <ion-option value="Vacant">Vacant</ion-option>
         <ion-option value="n64">John Smith</ion-option>
         <ion-option value="ps">Sara</ion-option>
         <ion-option value="genesis">Sam</ion-option>
         <ion-option value="saturn">Nicole</ion-option>
-      </ion-select>
+      </ion-select> -->
     </ion-item>
 
   </ion-list>

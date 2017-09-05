@@ -1,0 +1,19 @@
+page-update-phone-number {
+  .toolbar-background.toolbar-background-ios,
+	.toolbar-background-md {
+    background: #03A9F4;
+  }
+
+  ion-icon.back-button-icon.icon.icon-ios.back-button-icon-ios.ion-ios-arrow-back {
+    color: white;
+  }
+
+  span.back-button-text.back-button-text-ios {
+    display: none;
+  }
+
+  .toolbar-title-ios {
+    font-weight: 500;
+    color: white;
+  }
+}

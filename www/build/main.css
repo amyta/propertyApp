@@ -25203,11 +25203,13 @@ ion-navbar.toolbar {
   float: right;
 }
 
-.content-ios {
+.content-ios,
+.content-md {
   background-color: #fafafa;
 }
 
-.side-menu .toolbar-background.toolbar-background-ios {
+.side-menu .toolbar-background.toolbar-background-ios,
+.side-menu .toolbar-background-md {
   background: #03A9F4;
 }
 
@@ -25233,6 +25235,35 @@ ion-navbar.toolbar {
   padding-left: 10px;
 }
 
+.red-background {
+  background-color: #F44336;
+}
+
+.orange-background {
+  background-color: #ffa64c;
+}
+
+.green-background {
+  background-color: #4cc94c;
+}
+
+page-account .account-profile {
+  background: #03A9F4;
+  height: 200px;
+}
+
+page-account .account-profile p.title {
+  color: white;
+  font-size: 1.7rem;
+  padding-top: 2%;
+  margin-bottom: 0;
+}
+
+page-account .account-profile p {
+  margin: 0;
+  color: white;
+}
+
 page-add-new-property .property-profile {
   height: 200px;
 }
@@ -25248,13 +25279,15 @@ page-add-new-property .property-profile ion-input.subtitle {
   margin: 0;
 }
 
-page-add-new-property .property-profile input.text-input.text-input-ios {
+page-add-new-property .property-profile input.text-input.text-input-ios,
+page-add-new-property .property-profile input.text-input.text-input-md {
   text-align: center;
   margin: 0 0 10px 0;
   color: white;
 }
 
-page-add-new-property .property-profile ion-icon.icon.icon-ios.ion-ios-arrow-back {
+page-add-new-property .property-profile ion-icon.icon.icon-ios.ion-ios-arrow-back,
+page-add-new-property .property-profile ion-icon.icon.icon-md.ion-md-arrow-back {
   color: white;
 }
 
@@ -25267,6 +25300,24 @@ page-add-new-property .overlay {
 page-add-new-property .position-bottom {
   position: absolute;
   bottom: 0;
+}
+
+page-add-new-property span.label {
+  margin-bottom: 4px;
+  font-size: 1.2rem;
+}
+
+page-add-new-property .scrollbar {
+  width: 100%;
+  height: 150px;
+  overflow: scroll;
+}
+
+page-add-new-property ion-searchbar.searchbar.searchbar-ios.searchbar-left-aligned {
+  padding: 0;
+  min-height: 0;
+  border: none;
+  background: none;
 }
 
 page-add-new-tenant .tenant-icon {
@@ -25308,7 +25359,8 @@ page-properties .border-top {
   border-top: 1px solid #c9c9c9;
 }
 
-page-properties .item-ios.item-block .item-inner {
+page-properties .item-ios.item-block .item-inner,
+page-properties .item-md.item-block .item-inner {
   border-bottom: none;
 }
 
@@ -25353,6 +25405,44 @@ page-properties .overlay {
   background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.8));
 }
 
+page-properties ion-card div.property-container {
+  height: 150px;
+  background-color: #ffa64c;
+  padding-left: 16px;
+}
+
+page-properties ion-card div.property-container h2 {
+  color: white;
+  font-size: 1.7rem;
+  padding-top: 17%;
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+page-properties ion-card div.property-container p {
+  margin: 0;
+  color: white;
+}
+
+page-properties ion-card div.property-container-2 {
+  height: 150px;
+  background-color: #4cc94c;
+  padding-left: 16px;
+}
+
+page-properties ion-card div.property-container-2 h2 {
+  color: white;
+  font-size: 1.7rem;
+  padding-top: 17%;
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+page-properties ion-card div.property-container-2 p {
+  margin: 0;
+  color: white;
+}
+
 page-property-profile .property-profile {
   background: url("https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w560x373.jpg?v=15") center;
   height: 200px;
@@ -25370,7 +25460,8 @@ page-property-profile .property-profile p {
   color: white;
 }
 
-page-property-profile .property-profile ion-icon.icon.icon-ios.ion-ios-arrow-back {
+page-property-profile .property-profile ion-icon.icon.icon-ios.ion-ios-arrow-back,
+page-property-profile .property-profile ion-icon.icon.icon-md.ion-md-arrow-back {
   color: white;
 }
 
@@ -25389,12 +25480,27 @@ page-rent .row-styling {
   margin-top: 10px;
 }
 
+page-rent .red {
+  color: #F44336;
+}
+
+page-rent .orange {
+  color: #ffa64c;
+}
+
+page-rent .green {
+  color: #4cc94c;
+}
+
+page-rent p {
+  padding: 5px 0 5px 0;
+}
+
 page-rent ion-item.item.item-block.item-ios,
 page-rent ion-item.item.item-block.item-md,
 page-rent ion-list-header.item.item-ios.list-header.list-header-ios,
 page-rent ion-list-header.item.item-md.list-header.list-header-md {
   border-bottom: 0.55px solid #c8c7cc;
-  border-top: none;
 }
 
 page-rent .select-property {
@@ -25431,6 +25537,10 @@ page-repairs ion-item.item.item-block.item-md {
   border-bottom: 0.55px solid #c8c7cc;
 }
 
+page-repairs h3 {
+  padding: 5px 0 0 0;
+}
+
 page-tenant-profile .tenant-profile {
   background: url("https://pbs.twimg.com/profile_images/856266617537273856/pfYJlHzP_400x400.jpg") center;
   height: 200px;
@@ -25448,8 +25558,14 @@ page-tenant-profile .tenant-profile p {
   color: white;
 }
 
-page-tenant-profile .tenant-profile ion-icon.icon.icon-ios.ion-ios-arrow-back {
+page-tenant-profile ion-icon.icon.icon-ios.ion-ios-arrow-back,
+page-tenant-profile ion-icon.icon.icon-md.ion-md-arrow-back {
   color: white;
+}
+
+page-tenant-profile ion-icon.icon.icon-ios,
+page-tenant-profile ion-icon.icon.icon-md {
+  color: gray;
 }
 
 page-tenant-profile .overlay {
@@ -25463,6 +25579,24 @@ page-tenant-profile .position-bottom {
   bottom: 0;
 }
 
-page-tenants .item-ios.item-block .item-inner {
-  border-bottom: none;
+page-tenant-profile .repair-date {
+  color: gray;
+}
+
+page-update-phone-number .toolbar-background.toolbar-background-ios,
+page-update-phone-number .toolbar-background-md {
+  background: #03A9F4;
+}
+
+page-update-phone-number ion-icon.back-button-icon.icon.icon-ios.back-button-icon-ios.ion-ios-arrow-back {
+  color: white;
+}
+
+page-update-phone-number span.back-button-text.back-button-text-ios {
+  display: none;
+}
+
+page-update-phone-number .toolbar-title-ios {
+  font-weight: 500;
+  color: white;
 }

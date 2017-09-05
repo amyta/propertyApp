@@ -2,13 +2,29 @@ page-rent {
   .row-styling {
     margin-top: 10px;
   }
+  
+  .red {
+      color: #F44336;
+  }
+
+  .orange {
+    color: #ffa64c;
+  }
+
+  .green {
+    color: #4cc94c;
+  }
+
+  p {
+    padding: 5px 0 5px 0;
+  }
 
   ion-item.item.item-block.item-ios,
   ion-item.item.item-block.item-md,
   ion-list-header.item.item-ios.list-header.list-header-ios,
   ion-list-header.item.item-md.list-header.list-header-md {
     border-bottom: 0.55px solid #c8c7cc;
-    border-top: none;
+    // border-top: none;
   }
 
   .select-property {

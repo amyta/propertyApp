@@ -27,7 +27,7 @@ export class MyApp {
 
     this.pages = [
       { title: 'Dashboard', component: TabsPage },
-      { title: 'Account', component: AccountPage }
+      { title: 'Settings', component: AccountPage }
     ];
   }
 

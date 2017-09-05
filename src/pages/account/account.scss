@@ -1,3 +1,18 @@
 page-account {
+  .account-profile {
+    background: #03A9F4;
+    height: 200px;
 
+    p.title {
+      color: white;
+      font-size: 1.7rem;
+      padding-top: 2%;
+      margin-bottom: 0;
+    }
+
+    p {
+      margin: 0;
+      color: white;
+    }
+  }
 }

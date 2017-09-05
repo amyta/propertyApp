@@ -20,12 +20,14 @@
   float: right;
 }
 
-.content-ios {
+.content-ios,
+.content-md {
 		background-color: #fafafa;
 }
 
 .side-menu {
-	.toolbar-background.toolbar-background-ios {
+	.toolbar-background.toolbar-background-ios,
+	.toolbar-background-md {
 		background: #03A9F4;
 	}
 
@@ -48,4 +50,16 @@
 				padding-left: 10px;
 			}
 	}
+}
+
+.red-background {
+	background-color: #F44336;
+}
+
+.orange-background {
+	background-color: #ffa64c;
+}
+
+.green-background {
+	background-color: #4cc94c;
 }

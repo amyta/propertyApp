@@ -14,6 +14,18 @@ export class RentPage {
     this.months = ['J','F','M','A','M','J','J','A','S','O','N','D'];
   }
 
+  public getRentStatusColor(rentStatus:string) {
+    let rentStatusColor = '';
+
+    if (rentStatus === 'PAST DUE') {
+      rentStatusColor = 'red';
+    } else if (rentStatus === 'DUE') {
+      rentStatusColor = 'orange';
+    } else if (rentStatus === 'PAID') {
+      rentStatusColor = 'green';
+    }
+  }
+
   public sendReminder() {
     this.select = !this.select;
     // let i in propertyList;
