@@ -33,7 +33,7 @@ export class AddNewPropertyPage {
   let headers = new Headers();
   headers.append('Content-Type', 'application/json');
 
-  this.http.post('https://young-reef-27531.herokuapp.com/api/properties', JSON.stringify(this.property.value), {headers: headers})
+  this.http.post('http://localhost:8080/api/properties', JSON.stringify(this.property.value), {headers: headers})
     .map(res => res.json())
     .subscribe(data => {
       console.log(data)
@@ -51,24 +51,4 @@ export class AddNewPropertyPage {
   public goBack() {
     this.navCtrl.pop()
   }
-
-  postRequest() {
-    var headers = new Headers();
-    headers.append("Accept", 'application/json');
-    headers.append('Content-Type', 'application/json' );
-    let options = new RequestOptions({ headers: headers });
- 
-    let postParams = {
-      first_name: 'foo',
-      last_name: 'bar'
-    }
-    
-    this.http.post("https://arcane-everglades-52026.herokuapp.com/", postParams, options)
-      .subscribe(data => {
-        console.log(data['_body']);
-       }, error => {
-        console.log(error);// Error getting the data
-      });
-  }
-
 }

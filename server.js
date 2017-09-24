@@ -47,11 +47,11 @@ app.get("/api/properties", function (req, res) {
 
 // POST: create a new property
 app.post("/api/properties", function (req, res) {
-	var Property = mongoose.model('Property', {
+	var Property = {
 		nickname: String,
 		address: String,
 		rent: Number
-	});
+	}
 
 	db.collection("properties").insertOne(Property, function (err, doc) {
 		if (err) {

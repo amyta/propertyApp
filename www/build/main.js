@@ -86,7 +86,7 @@ var AddNewPropertyPage = (function () {
         debugger;
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        this.http.post('https://young-reef-27531.herokuapp.com/api/properties', JSON.stringify(this.property.value), { headers: headers })
+        this.http.post('http://localhost:8080/api/properties', JSON.stringify(this.property.value), { headers: headers })
             .map(function (res) { return res.json(); })
             .subscribe(function (data) {
             console.log(data);
@@ -100,22 +100,6 @@ var AddNewPropertyPage = (function () {
     };
     AddNewPropertyPage.prototype.goBack = function () {
         this.navCtrl.pop();
-    };
-    AddNewPropertyPage.prototype.postRequest = function () {
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
-        headers.append("Accept", 'application/json');
-        headers.append('Content-Type', 'application/json');
-        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var postParams = {
-            first_name: 'foo',
-            last_name: 'bar'
-        };
-        this.http.post("https://arcane-everglades-52026.herokuapp.com/", postParams, options)
-            .subscribe(function (data) {
-            console.log(data['_body']);
-        }, function (error) {
-            console.log(error); // Error getting the data
-        });
     };
     return AddNewPropertyPage;
 }());
@@ -505,7 +489,7 @@ var PropertiesPage = (function () {
     PropertiesPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         debugger;
-        this.http.get('https://young-reef-27531.herokuapp.com/api/properties')
+        this.http.get('https://obscure-reef-64251.herokuapp.com/api/properties')
             .map(function (res) { return res.json(); })
             .subscribe(function (data) {
             _this.property = data;
