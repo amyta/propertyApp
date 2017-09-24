@@ -1,10 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
 
 import { AddNewPropertyPage } from '../add-new-property/add-new-property';
-
-declare var google;
 
 @Component({
   selector: 'page-home',
@@ -14,7 +11,7 @@ export class HomePage {
   // @ViewChild('map') mapElement: ElementRef;
   // map: any;
 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) {
+  constructor(public navCtrl: NavController) {
   }
 
   // ionViewDidLoad(){

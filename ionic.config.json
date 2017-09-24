@@ -1,8 +1,14 @@
 {
   "name": "propertyApp",
-  "app_id": "",
+  "app_id": "a5e924e1",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/api/properties",
+      "proxyUrl": "https://young-reef-27531.herokuapp.com/api/properties"
+    }
+  ]
 }

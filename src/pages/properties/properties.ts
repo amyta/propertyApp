@@ -1,26 +1,50 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Storage } from '@ionic/storage';
+import { Http, Headers } from '@angular/http';
 
 import { AddNewPropertyPage } from '../add-new-property/add-new-property';
 import { PropertyProfilePage } from '../property-profile/property-profile';
 
-declare var google;
+import { LocalstorageProvider } from '../../providers/localstorage/localstorage';
+
+// declare var google;
 
 @Component({
   selector: 'page-properties',
   templateUrl: 'properties.html'
 })
-export class PropertiesPage {
-  @ViewChild('map') mapElement: ElementRef;
-  public map: any;
+export class PropertiesPage implements OnInit {
+//   @ViewChild('map') mapElement: ElementRef;
+//   public map: any;
+  public propertyList: any;
+  public property: any;
+  public users: any;
 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation) {
+	constructor(public navCtrl: NavController, private storage: Storage,
+		private localstorage: LocalstorageProvider, public http: Http) {
+		}
+
+	ngOnInit() {
   }
 
-  // ionViewDidLoad(){
-  //   this.loadMap();
-  // }
+	public getPropertyList() {
+		// this.localstorage.getProperty();
+        this.propertyList = this.localstorage.getProperty();
+        console.log(this.localstorage.getProperty());        
+	}
+
+  ionViewDidLoad(){
+    debugger;
+		this.http.get('https://young-reef-27531.herokuapp.com/api/properties')
+			.map(res => res.json())
+			.subscribe(data => {
+        this.property = data;
+			});
+		
+    // this.loadMap();
+  }
 
   // loadMap(){
   //   this.geolocation.getCurrentPosition().then((position) => {

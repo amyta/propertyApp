@@ -1,12 +1,12 @@
 webpackJsonp([0],{
 
-/***/ 100:
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddNewPropertyPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RepairRequestPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,85 +18,185 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var AddNewPropertyPage = (function () {
-    function AddNewPropertyPage(navCtrl, navParams) {
+var RepairRequestPage = (function () {
+    function RepairRequestPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.initializeTenants();
     }
+    RepairRequestPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad RepairRequestPage');
+    };
+    return RepairRequestPage;
+}());
+RepairRequestPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-repair-request',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/repair-request/repair-request.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Repair Request No. 1</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n <ion-list no-lines>\n    <ion-item>\n      <p>Repair Item</p>\n      <h2>Garage door</h2>\n    </ion-item>\n\n    <!-- <ion-item>\n      <p>Urgency</p>\n      <h2>Low</h2>\n    </ion-item> -->\n\n    <ion-item>\n      <p>Comments</p>\n      <h2 class="comments">the garage door is making a squeaking noise when opening and closing. has been going on for 1 week</h2>\n    </ion-item>\n\n    <ion-item>\n      <p>Pictures</p>\n      <ion-row>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n      </ion-row>\n    </ion-item>\n\n    <ion-item style="background-color: #fafafa">\n      <p class="property">Property #1: 888 Marengo Street Pasadena, Ca 91101</p>\n      <p class="requestor">Requestor: John Smith</p>\n      <p class="date-requested">Date Submitted: 09/02/17</p>\n    </ion-item>\n\n    <ion-item>\n      <p>Receipts</p>\n      <ion-row>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n      </ion-row>\n    </ion-item>\n\n    <ion-item color="primary">\n      <ion-icon name="add" item-left large></ion-icon>Add receipts\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/repair-request/repair-request.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+], RepairRequestPage);
+
+//# sourceMappingURL=repair-request.js.map
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddNewPropertyPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_localstorage_localstorage__ = __webpack_require__(104);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var AddNewPropertyPage = (function () {
+    function AddNewPropertyPage(navCtrl, navParams, http, storage, formBuilder, localstorage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.storage = storage;
+        this.formBuilder = formBuilder;
+        this.localstorage = localstorage;
+        this.property = this.formBuilder.group({
+            nickname: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* Validators */].required],
+            address: [''],
+            rent: ['']
+            // rentReminder: [''],
+            // rentDueDate: [''],
+            // tenant: ['']
+        });
+    }
+    AddNewPropertyPage.prototype.addProperty = function () {
+        debugger;
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        this.http.post('https://young-reef-27531.herokuapp.com/api/properties', JSON.stringify(this.property.value), { headers: headers })
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            console.log(data);
+        });
+    };
+    // logForm(){
+    //   this.localstorage.setProperty(this.property.value);
+    // }
     AddNewPropertyPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AddNewPropertyPage');
     };
-    AddNewPropertyPage.prototype.initializeTenants = function () {
-        this.tenants = [
-            'Amsterdam',
-            'Bogota',
-            'Buenos Aires',
-            'Cairo',
-            'Dhaka',
-            'Edinburgh',
-            'Geneva',
-            'Genoa',
-            'Glasglow',
-            'Hanoi',
-            'Hong Kong',
-            'Islamabad',
-            'Istanbul',
-            'Jakarta',
-            'Kiel',
-            'Kyoto',
-            'Le Havre',
-            'Lebanon',
-            'Lhasa',
-            'Lima',
-            'London',
-            'Los Angeles',
-            'Madrid',
-            'Manila',
-            'New York',
-            'Olympia',
-            'Oslo',
-            'Panama City',
-            'Peking',
-            'Philadelphia',
-            'San Francisco',
-            'Seoul',
-            'Taipeh',
-            'Tel Aviv',
-            'Tokio',
-            'Uelzen',
-            'Washington'
-        ];
-    };
-    AddNewPropertyPage.prototype.searchTenant = function (ev) {
-        // Reset items back to all of the items
-        this.initializeTenants();
-        // set val to the value of the ev target
-        var val = ev.target.value;
-        // if the value is an empty string don't filter the items
-        if (val && val.trim() != '') {
-            this.tenants = this.tenants.filter(function (tenant) {
-                return (tenant.toLowerCase().indexOf(val.toLowerCase()) > -1);
-            });
-        }
-    };
     AddNewPropertyPage.prototype.goBack = function () {
         this.navCtrl.pop();
+    };
+    AddNewPropertyPage.prototype.postRequest = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var postParams = {
+            first_name: 'foo',
+            last_name: 'bar'
+        };
+        this.http.post("https://arcane-everglades-52026.herokuapp.com/", postParams, options)
+            .subscribe(function (data) {
+            console.log(data['_body']);
+        }, function (error) {
+            console.log(error); // Error getting the data
+        });
     };
     return AddNewPropertyPage;
 }());
 AddNewPropertyPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-add-new-property',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/add-new-property/add-new-property.html"*/'<ion-content>\n  <div class="property-profile">\n    <div class="overlay">\n      <button ion-button clear (click)="goBack()">\n        <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>\n      </button>\n      <ion-input type="name" placeholder="Property Name" class="title"></ion-input>\n      <ion-input type="address" placeholder="Address" class="subtitle"></ion-input>\n    </div>\n  </div> \n\n  <ion-list>\n    \n    <ion-item>\n      <ion-label stacked>Rent Amount</ion-label>\n      <ion-input type="rent" placeholder="Rent Amount"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Set Reminder For Rent Due</ion-label>\n      <ion-input type="rent" placeholder="Days Before Due"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Rent Due Date</ion-label>\n      <ion-datetime displayFormat="D" [(ngModel)]="myDate"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <span class="label">Tenant</span>\n      <ion-searchbar (ionInput)="searchTenant($event)"></ion-searchbar>\n      <div class="scrollbar">\n        <ion-list>\n          <ion-item *ngFor="let tenant of tenants">\n            {{ tenant }}\n          </ion-item>\n        </ion-list>\n      </div>\n      <!-- <ion-label stacked>Tenant</ion-label>\n      <ion-select [(ngModel)]="tenants" multiple="true">\n        <ion-option value="Vacant">Vacant</ion-option>\n        <ion-option value="n64">John Smith</ion-option>\n        <ion-option value="ps">Sara</ion-option>\n        <ion-option value="genesis">Sam</ion-option>\n        <ion-option value="saturn">Nicole</ion-option>\n      </ion-select> -->\n    </ion-item>\n\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/add-new-property/add-new-property.html"*/,
+        selector: 'page-add-new-property',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/add-new-property/add-new-property.html"*/'<ion-content>\n\n  <form [formGroup]="property" (ngSubmit)="addProperty()">\n    <div class="property-profile">\n      <div class="overlay">\n        <button ion-button clear (click)="goBack()">\n          <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>\n        </button>\n        <ion-input type="text" formControlName="nickname" placeholder="Property Name"></ion-input>\n        <ion-input type="text" formControlName="address" placeholder="Address"></ion-input>\n      </div>\n    </div> \n\n<button ion-button item-right (click)="postRequest()">Button</button>\n\n\n    <ion-list>\n      \n      <ion-item>\n        <ion-label stacked>Rent Amount</ion-label>\n        <ion-input type="text" formControlName="rent" placeholder="1,000"></ion-input>\n      </ion-item>\n\n      <!-- <ion-item>\n        <ion-label stacked>Set Reminder For Rent Due</ion-label>\n        <ion-input type="text" formControlName="rentReminder" placeholder="10 days before due"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label stacked>Rent Due Date</ion-label>\n        <ion-input type="text" formControlName="rentDueDate" placeholder="1st of month"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label stacked>Tenant</ion-label>\n        <ion-input type="text" formControlName="tenant" placeholder="Amy"></ion-input>\n      </ion-item> -->\n\n    </ion-list>\n\n    <button ion-button type="submit" [disabled]="!property.valid">Submit</button>\n    \n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/add-new-property/add-new-property.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_localstorage_localstorage__["a" /* LocalstorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_localstorage_localstorage__["a" /* LocalstorageProvider */]) === "function" && _f || Object])
 ], AddNewPropertyPage);
 
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=add-new-property.js.map
 
 /***/ }),
 
-/***/ 109:
+/***/ 104:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LocalstorageProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(49);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LocalstorageProvider = (function () {
+    function LocalstorageProvider(http, storage) {
+        this.http = http;
+        this.storage = storage;
+        console.log('Hello LocalstorageProvider Provider');
+    }
+    //store the email address
+    LocalstorageProvider.prototype.setProperty = function (property) {
+        this.storage.set('property', property);
+        console.log(property);
+    };
+    //get the stored email
+    LocalstorageProvider.prototype.getProperty = function () {
+        var _this = this;
+        this.storage.get('property').then(function (property) {
+            _this.property = property;
+        });
+        return this.property;
+    };
+    //delete the email address
+    LocalstorageProvider.prototype.removeEmail = function () {
+        this.storage.remove('email').then(function () {
+            console.log('email is removed');
+        });
+    };
+    //clear the whole local storage
+    LocalstorageProvider.prototype.clearStorage = function () {
+        this.storage.clear().then(function () {
+            console.log('all keys are cleared');
+        });
+    };
+    return LocalstorageProvider;
+}());
+LocalstorageProvider = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
+], LocalstorageProvider);
+
+//# sourceMappingURL=localstorage.js.map
+
+/***/ }),
+
+/***/ 112:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -105,11 +205,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 109;
+webpackEmptyAsyncContext.id = 112;
 
 /***/ }),
 
-/***/ 150:
+/***/ 154:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -118,21 +218,21 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 150;
+webpackEmptyAsyncContext.id = 154;
 
 /***/ }),
 
-/***/ 193:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rent_rent__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tenants_tenants__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__properties_properties__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__repairs_repairs__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rent_rent__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tenants_tenants__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__properties_properties__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__repairs_repairs__ = __webpack_require__(204);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -168,13 +268,13 @@ TabsPage = __decorate([
 
 /***/ }),
 
-/***/ 194:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RentPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -227,15 +327,15 @@ RentPage = __decorate([
 
 /***/ }),
 
-/***/ 195:
+/***/ 199:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TenantsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tenant_profile_tenant_profile__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_new_tenant_add_new_tenant__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tenant_profile_tenant_profile__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_new_tenant_add_new_tenant__ = __webpack_require__(201);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -272,14 +372,14 @@ TenantsPage = __decorate([
 
 /***/ }),
 
-/***/ 196:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TenantProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__repair_request_repair_request__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__repair_request_repair_request__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -319,13 +419,13 @@ TenantProfilePage = __decorate([
 
 /***/ }),
 
-/***/ 197:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddNewTenantPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -359,16 +459,18 @@ AddNewTenantPage = __decorate([
 
 /***/ }),
 
-/***/ 198:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PropertiesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_new_property_add_new_property__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__property_profile_property_profile__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_new_property_add_new_property__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__property_profile_property_profile__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_localstorage_localstorage__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -383,14 +485,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+// declare var google;
 var PropertiesPage = (function () {
-    function PropertiesPage(navCtrl, geolocation) {
+    function PropertiesPage(navCtrl, storage, localstorage, http) {
         this.navCtrl = navCtrl;
-        this.geolocation = geolocation;
+        this.storage = storage;
+        this.localstorage = localstorage;
+        this.http = http;
     }
-    // ionViewDidLoad(){
-    //   this.loadMap();
-    // }
+    PropertiesPage.prototype.ngOnInit = function () {
+    };
+    PropertiesPage.prototype.getPropertyList = function () {
+        // this.localstorage.getProperty();
+        this.propertyList = this.localstorage.getProperty();
+        console.log(this.localstorage.getProperty());
+    };
+    PropertiesPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        debugger;
+        this.http.get('https://young-reef-27531.herokuapp.com/api/properties')
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            _this.property = data;
+        });
+        // this.loadMap();
+    };
     // loadMap(){
     //   this.geolocation.getCurrentPosition().then((position) => {
     //     let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -409,38 +530,35 @@ var PropertiesPage = (function () {
     //   });
     // }
     PropertiesPage.prototype.goAddNewProperty = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__add_new_property_add_new_property__["a" /* AddNewPropertyPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__add_new_property_add_new_property__["a" /* AddNewPropertyPage */]);
     };
     PropertiesPage.prototype.goPropertyProfile = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__property_profile_property_profile__["a" /* PropertyProfilePage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__property_profile_property_profile__["a" /* PropertyProfilePage */]);
     };
     PropertiesPage.prototype.goRootPage = function (tabIndex) {
         this.navCtrl.parent.select(tabIndex);
     };
     return PropertiesPage;
 }());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])('map'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */])
-], PropertiesPage.prototype, "mapElement", void 0);
 PropertiesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-properties',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/properties/properties.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n    <ion-title>Properties</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item color="primary" (click)="goAddNewProperty()">\n    <ion-icon name="add" item-left large></ion-icon>Add new property\n  </ion-item>\n  \n    <!-- <div class="map-container">\n  <div #map id="map"></div>\n  </div> -->\n\n  <!-- <div class="property-picture" style="background: url(\'assets/img/house.jpg\') center">\n    <div class="overlay" text-center>\n      <h2 style="color: white">Property #1</h2>\n      <p style="color: white">888 Marengo Street Pasadena, Ca 91101</p>\n    </div>\n  </div> -->\n  <ion-card>\n\n    <div class="property-container" (click)="goPropertyProfile()">\n      <h2>Property #1</h2>\n      <p>888 Marengo Street Pasadena, Ca 91101</p>\n      <!-- <ion-icon style="color: white" name="arrow-forward" large item-end></ion-icon>    -->\n    </div> \n\n    <ion-item class="border-top" (click)="goRootPage(1)">\n      <h2 style="color: #ffa64c">Rent due in (10) days</h2>\n      <p>$3,300</p> \n    </ion-item>\n\n     <!-- <ion-item class="border-top">\n      <h2>New Messages</h2>\n      <p>Hi Kenny, there seems to be a problem with the garage door.</p><ion-badge color="danger" item-end>3</ion-badge>\n    </ion-item> -->\n\n    <!-- <ion-item class="border-top" (click)="goRootPage(2)">\n      <h2>Repair request</h2><ion-badge color="danger" item-end>1</ion-badge>\n       <p>Garage door</p> \n    </ion-item>  -->\n \n     <ion-row class="border-top" text-center>\n      <ion-col>\n        <button ion-button icon-left clear small (click)="goRootPage(2)">\n          <ion-icon name="build"></ion-icon>\n          <div>1 repair request</div>\n        </button>\n      </ion-col>\n      <!-- <ion-col>\n        <button ion-button icon-left clear small>\n          <ion-icon name="text" color="primary"></ion-icon>\n          <div>3 New Messages</div>\n        </button>\n      </ion-col> -->\n    </ion-row>  \n\n  </ion-card>\n\n  <ion-card>\n    <div class="property-container-2" (click)="goPropertyProfile()">\n      <h2>Property #2</h2>\n      <p>3581 Whistler Avenue El Monte, Ca 91732</p>\n      <!-- <ion-icon style="color: white" name="arrow-dropright-circle" large (click)="goPropertyProfile()" item-end></ion-icon>   -->\n    </div>\n\n    <ion-item class="border-top" (click)="goRootPage(1)">\n      <!-- <ion-icon name="checkmark-circle" style="color: #4cc94c" item-start></ion-icon> -->\n      <h2 style="color: #4cc94c">Rent paid</h2>\n       <ion-icon name="checkmark-circle" style="color: #2DCC70" item-end></ion-icon> \n      <p>$2,100</p> \n    </ion-item>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/properties/properties.html"*/
+        selector: 'page-properties',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/properties/properties.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n    <ion-title>Properties</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item color="primary" (click)="goAddNewProperty()">\n    <ion-icon name="add" item-left large></ion-icon>Add new property\n  </ion-item>\n  \n    <!-- <div class="map-container">\n  <div #map id="map"></div>\n  </div> -->\n\n  <button (click)="addProperty()">dfas</button>\n    \n  <ion-card *ngFor="let prop of property">\n\n    <div class="property-container" (click)="goPropertyProfile()">\n      <h2>{{prop.nickname}}</h2>\n      <p>{{prop.address}}</p>\n    </div> \n\n    <ion-item class="border-top" (click)="goRootPage(1)">\n      <h2 style="color: #ffa64c">Rent due in (10) days</h2>\n      <p>${{prop.rent}}</p> \n    </ion-item>\n \n     <ion-row class="border-top" text-center>\n      <ion-col>\n        <button ion-button icon-left clear small (click)="goRootPage(2)">\n          <ion-icon name="build"></ion-icon>\n          <div>1 repair request</div>\n        </button>\n      </ion-col>\n    </ion-row>  \n\n  </ion-card>\n\n  <ion-card>\n    <div class="property-container-2" (click)="goPropertyProfile()">\n      <h2>Property #2</h2>\n      <p>3581 Whistler Avenue El Monte, Ca 91732</p>\n    </div>\n\n    <ion-item class="border-top" (click)="goRootPage(1)">\n      <h2 style="color: #4cc94c">Rent paid</h2>\n       <ion-icon name="checkmark-circle" style="color: #2DCC70" item-end></ion-icon> \n      <p>$2,100</p> \n    </ion-item>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/properties/properties.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__providers_localstorage_localstorage__["a" /* LocalstorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_localstorage_localstorage__["a" /* LocalstorageProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _d || Object])
 ], PropertiesPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=properties.js.map
 
 /***/ }),
 
-/***/ 199:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PropertyProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -476,14 +594,14 @@ PropertyProfilePage = __decorate([
 
 /***/ }),
 
-/***/ 200:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RepairsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__repair_request_repair_request__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__repair_request_repair_request__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -524,13 +642,13 @@ RepairsPage = __decorate([
 
 /***/ }),
 
-/***/ 201:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RepairRequestPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -542,35 +660,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var RepairRequestPage = (function () {
-    function RepairRequestPage(navCtrl, navParams) {
+/**
+ * Generated class for the SettingsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var SettingsPage = (function () {
+    function SettingsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    RepairRequestPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RepairRequestPage');
+    SettingsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SettingsPage');
     };
-    return RepairRequestPage;
+    return SettingsPage;
 }());
-RepairRequestPage = __decorate([
+SettingsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-repair-request',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/repair-request/repair-request.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Repair Request No. 1</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n <ion-list no-lines>\n    <ion-item>\n      <p>Repair Item</p>\n      <h2>Garage door</h2>\n    </ion-item>\n\n    <!-- <ion-item>\n      <p>Urgency</p>\n      <h2>Low</h2>\n    </ion-item> -->\n\n    <ion-item>\n      <p>Comments</p>\n      <h2 class="comments">the garage door is making a squeaking noise when opening and closing. has been going on for 1 week</h2>\n    </ion-item>\n\n    <ion-item>\n      <p>Pictures</p>\n      <ion-row>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n      </ion-row>\n    </ion-item>\n\n    <ion-item style="background-color: #fafafa">\n      <p class="property">Property #1: 888 Marengo Street Pasadena, Ca 91101</p>\n      <p class="requestor">Requestor: John Smith</p>\n      <p class="date-requested">Date Submitted: 09/02/17</p>\n    </ion-item>\n\n    <ion-item>\n      <p>Receipts</p>\n      <ion-row>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n        <ion-col col-6>\n          <img src="assets/img/map.png">\n        </ion-col>\n      </ion-row>\n    </ion-item>\n\n    <ion-item color="primary">\n      <ion-icon name="add" item-left large></ion-icon>Add receipts\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/repair-request/repair-request.html"*/,
+        selector: 'page-settings',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/settings/settings.html"*/'\n<ion-header>\n\n  <ion-navbar>\n     <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n    <ion-title>Settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/settings/settings.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
-], RepairRequestPage);
+], SettingsPage);
 
-//# sourceMappingURL=repair-request.js.map
+//# sourceMappingURL=settings.js.map
 
 /***/ }),
 
-/***/ 202:
+/***/ 206:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__update_phone_number_update_phone_number__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__update_phone_number_update_phone_number__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -607,13 +731,58 @@ AccountPage = __decorate([
 
 /***/ }),
 
-/***/ 203:
+/***/ 207:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdatePhoneNumberPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the UpdatePhoneNumberPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var UpdatePhoneNumberPage = (function () {
+    function UpdatePhoneNumberPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    UpdatePhoneNumberPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad UpdatePhoneNumberPage');
+    };
+    return UpdatePhoneNumberPage;
+}());
+UpdatePhoneNumberPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-update-phone-number',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/update-phone-number/update-phone-number.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Phone Numbers</ion-title>\n  </ion-navbar>\n\n</ion-header> \n\n\n<ion-content>\n\n  <ion-list no-lines>\n    <ion-item>\n      (626) 555-555\n    </ion-item>\n\n     <button ion-item (click)="itemSelected(item)">\n      Add phone number\n    </button>  \n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/update-phone-number/update-phone-number.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+], UpdatePhoneNumberPage);
+
+//# sourceMappingURL=update-phone-number.js.map
+
+/***/ }),
+
+/***/ 208:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(227);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -621,38 +790,44 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 222:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_properties_properties__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_property_profile_property_profile__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_add_new_property_add_new_property__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_rent_rent__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tenants_tenants__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_tenant_profile_tenant_profile__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_add_new_tenant_add_new_tenant__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_repairs_repairs__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_repair_request_repair_request__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_tabs_tabs__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_settings_settings__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_account_account__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_update_phone_number_update_phone_number__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_geolocation__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_status_bar__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_splash_screen__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_properties_properties__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_property_profile_property_profile__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_add_new_property_add_new_property__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_rent_rent__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_tenants_tenants__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_tenant_profile_tenant_profile__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_new_tenant_add_new_tenant__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_repairs_repairs__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_repair_request_repair_request__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_home_home__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_tabs_tabs__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_account_account__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_update_phone_number_update_phone_number__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_geolocation__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_localstorage_localstorage__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -682,49 +857,52 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_rent_rent__["a" /* RentPage */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_tenants_tenants__["a" /* TenantsPage */],
-            __WEBPACK_IMPORTED_MODULE_9__pages_tenant_profile_tenant_profile__["a" /* TenantProfilePage */],
-            __WEBPACK_IMPORTED_MODULE_10__pages_add_new_tenant_add_new_tenant__["a" /* AddNewTenantPage */],
-            __WEBPACK_IMPORTED_MODULE_13__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_4__pages_properties_properties__["a" /* PropertiesPage */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_property_profile_property_profile__["a" /* PropertyProfilePage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_add_new_property_add_new_property__["a" /* AddNewPropertyPage */],
-            __WEBPACK_IMPORTED_MODULE_11__pages_repairs_repairs__["a" /* RepairsPage */],
-            __WEBPACK_IMPORTED_MODULE_12__pages_repair_request_repair_request__["a" /* RepairRequestPage */],
-            __WEBPACK_IMPORTED_MODULE_14__pages_tabs_tabs__["a" /* TabsPage */],
-            __WEBPACK_IMPORTED_MODULE_15__pages_settings_settings__["a" /* SettingsPage */],
-            __WEBPACK_IMPORTED_MODULE_16__pages_account_account__["a" /* AccountPage */],
-            __WEBPACK_IMPORTED_MODULE_17__pages_update_phone_number_update_phone_number__["a" /* UpdatePhoneNumberPage */]
+            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_rent_rent__["a" /* RentPage */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_tenants_tenants__["a" /* TenantsPage */],
+            __WEBPACK_IMPORTED_MODULE_11__pages_tenant_profile_tenant_profile__["a" /* TenantProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_12__pages_add_new_tenant_add_new_tenant__["a" /* AddNewTenantPage */],
+            __WEBPACK_IMPORTED_MODULE_15__pages_home_home__["a" /* HomePage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_properties_properties__["a" /* PropertiesPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_property_profile_property_profile__["a" /* PropertyProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_add_new_property_add_new_property__["a" /* AddNewPropertyPage */],
+            __WEBPACK_IMPORTED_MODULE_13__pages_repairs_repairs__["a" /* RepairsPage */],
+            __WEBPACK_IMPORTED_MODULE_14__pages_repair_request_repair_request__["a" /* RepairRequestPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_tabs_tabs__["a" /* TabsPage */],
+            __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__["a" /* SettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_18__pages_account_account__["a" /* AccountPage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_update_phone_number_update_phone_number__["a" /* UpdatePhoneNumberPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */])
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */]),
+            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["a" /* IonicStorageModule */].forRoot()
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
         entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_rent_rent__["a" /* RentPage */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_tenants_tenants__["a" /* TenantsPage */],
-            __WEBPACK_IMPORTED_MODULE_9__pages_tenant_profile_tenant_profile__["a" /* TenantProfilePage */],
-            __WEBPACK_IMPORTED_MODULE_10__pages_add_new_tenant_add_new_tenant__["a" /* AddNewTenantPage */],
-            __WEBPACK_IMPORTED_MODULE_13__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_4__pages_properties_properties__["a" /* PropertiesPage */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_property_profile_property_profile__["a" /* PropertyProfilePage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_add_new_property_add_new_property__["a" /* AddNewPropertyPage */],
-            __WEBPACK_IMPORTED_MODULE_11__pages_repairs_repairs__["a" /* RepairsPage */],
-            __WEBPACK_IMPORTED_MODULE_12__pages_repair_request_repair_request__["a" /* RepairRequestPage */],
-            __WEBPACK_IMPORTED_MODULE_14__pages_tabs_tabs__["a" /* TabsPage */],
-            __WEBPACK_IMPORTED_MODULE_15__pages_settings_settings__["a" /* SettingsPage */],
-            __WEBPACK_IMPORTED_MODULE_16__pages_account_account__["a" /* AccountPage */],
-            __WEBPACK_IMPORTED_MODULE_17__pages_update_phone_number_update_phone_number__["a" /* UpdatePhoneNumberPage */]
+            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_rent_rent__["a" /* RentPage */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_tenants_tenants__["a" /* TenantsPage */],
+            __WEBPACK_IMPORTED_MODULE_11__pages_tenant_profile_tenant_profile__["a" /* TenantProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_12__pages_add_new_tenant_add_new_tenant__["a" /* AddNewTenantPage */],
+            __WEBPACK_IMPORTED_MODULE_15__pages_home_home__["a" /* HomePage */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_properties_properties__["a" /* PropertiesPage */],
+            __WEBPACK_IMPORTED_MODULE_7__pages_property_profile_property_profile__["a" /* PropertyProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_add_new_property_add_new_property__["a" /* AddNewPropertyPage */],
+            __WEBPACK_IMPORTED_MODULE_13__pages_repairs_repairs__["a" /* RepairsPage */],
+            __WEBPACK_IMPORTED_MODULE_14__pages_repair_request_repair_request__["a" /* RepairRequestPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_tabs_tabs__["a" /* TabsPage */],
+            __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__["a" /* SettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_18__pages_account_account__["a" /* AccountPage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_update_phone_number_update_phone_number__["a" /* UpdatePhoneNumberPage */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_19__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_20__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_18__ionic_native_geolocation__["a" /* Geolocation */],
-            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
+            __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_20__ionic_native_geolocation__["a" /* Geolocation */],
+            { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
+            __WEBPACK_IMPORTED_MODULE_23__providers_localstorage_localstorage__["a" /* LocalstorageProvider */]
         ]
     })
 ], AppModule);
@@ -733,18 +911,18 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 263:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_settings_settings__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_account__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_settings_settings__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_account_account__ = __webpack_require__(206);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -799,15 +977,14 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 272:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_new_property_add_new_property__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_new_property_add_new_property__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -820,13 +997,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var HomePage = (function () {
     // @ViewChild('map') mapElement: ElementRef;
     // map: any;
-    function HomePage(navCtrl, geolocation) {
+    function HomePage(navCtrl) {
         this.navCtrl = navCtrl;
-        this.geolocation = geolocation;
     }
     // ionViewDidLoad(){
     //   this.loadMap();
@@ -866,7 +1041,7 @@ var HomePage = (function () {
     //   });
     // }
     HomePage.prototype.goAddNewProperty = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__add_new_property_add_new_property__["a" /* AddNewPropertyPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__add_new_property_add_new_property__["a" /* AddNewPropertyPage */]);
     };
     return HomePage;
 }());
@@ -874,102 +1049,12 @@ HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Properties</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item color="primary" (click)="goAddNewProperty()">\n    <ion-icon name="add" item-left large></ion-icon>Add new property\n    <!-- <button ion-button small class="right" style="width: 175px">Add new property</button> -->\n  </ion-item>\n\n<ion-card>\n\n  <ion-item>\n    <!-- <ion-avatar item-start>\n      <img src="img/marty-avatar.png">\n    </ion-avatar> -->\n    <h2>Property #1</h2>\n    <p>888 Marengo Street Pasadena, Ca 91101</p>\n  </ion-item>\n\n<div class="map-container">\n<div #map id="map"></div>\n</div>\n  <!-- <img src="assets/img/map.png"> -->\n<!-- \n  <ion-card-content>\n    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>\n  </ion-card-content> -->\n\n  <ion-item>\n    <ion-icon name="cash" item-start large style="color: #4cc94c"></ion-icon>\n    <h2>Rent due in (10) days</h2>\n    <p>$3,300</p>\n  </ion-item>\n\n  <ion-item class="border-top">\n    <ion-icon name="text" item-left large color="primary"></ion-icon>\n    <h2>New Message</h2>\n    <p>Hi Kenny, there seems to be a problem with the garage door.</p>\n  </ion-item>\n\n  <ion-item class="border-top">\n    <ion-icon name="build" item-left large style="color: #ffa64c"></ion-icon>\n    <h2>(1) Repair request</h2>\n    <p>Garage door</p>\n  </ion-item>\n\n  <ion-item class="border-top">\n    <span item-left>18 min</span>\n    <span item-left>(2.6 mi)</span>\n    <button ion-button icon-left clear item-end>\n      <ion-icon name="navigate"></ion-icon>\n      Start\n    </button>\n  </ion-item>\n\n  <!-- <ion-row class="border-top">\n    <ion-col>\n      <button ion-button icon-left clear small>\n        <ion-icon name="thumbs-up"></ion-icon>\n        <div>12 Likes</div>\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button icon-left clear small>\n        <ion-icon name="text"></ion-icon>\n        <div>4 Comments</div>\n      </button>\n    </ion-col>\n    <ion-col center text-center>\n      <ion-note>\n        11h ago\n      </ion-note>\n    </ion-col>\n  </ion-row> -->\n\n</ion-card>\n\n\n<ion-card>\n\n  <ion-item>\n    <h2>Property #2</h2>\n    <p>3581 Whistler Avenue El Monte, Ca 91732</p>\n  </ion-item>\n\n  <img src="assets/img/map.png">\n\n  <ion-item>\n    <ion-icon name="cash" item-start large style="color: #4cc94c"></ion-icon>\n    <h2>Rent paid <ion-icon name="checkmark-circle" style="color: #4cc94c"></ion-icon></h2>\n    <p>$2,100</p>\n  </ion-item>\n\n  <ion-item class="border-top">\n    <span item-left>30 min</span>\n    <span item-left>(8.4 mi)</span>\n    <button ion-button icon-left clear item-end>\n      <ion-icon name="navigate"></ion-icon>\n      Start\n    </button>\n  </ion-item>\n\n</ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map
 
-/***/ }),
-
-/***/ 273:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the SettingsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var SettingsPage = (function () {
-    function SettingsPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    SettingsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SettingsPage');
-    };
-    return SettingsPage;
-}());
-SettingsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-settings',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/settings/settings.html"*/'\n<ion-header>\n\n  <ion-navbar>\n     <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n    <ion-title>Settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/settings/settings.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
-], SettingsPage);
-
-//# sourceMappingURL=settings.js.map
-
-/***/ }),
-
-/***/ 274:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdatePhoneNumberPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the UpdatePhoneNumberPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var UpdatePhoneNumberPage = (function () {
-    function UpdatePhoneNumberPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    UpdatePhoneNumberPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad UpdatePhoneNumberPage');
-    };
-    return UpdatePhoneNumberPage;
-}());
-UpdatePhoneNumberPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-update-phone-number',template:/*ion-inline-start:"/Users/amyta/propertyApp/src/pages/update-phone-number/update-phone-number.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Phone Numbers</ion-title>\n  </ion-navbar>\n\n</ion-header> \n\n\n<ion-content>\n\n  <ion-list no-lines>\n    <ion-item>\n      (626) 555-555\n    </ion-item>\n\n     <button ion-item (click)="itemSelected(item)">\n      Add phone number\n    </button>  \n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/amyta/propertyApp/src/pages/update-phone-number/update-phone-number.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
-], UpdatePhoneNumberPage);
-
-//# sourceMappingURL=update-phone-number.js.map
-
 /***/ })
 
-},[203]);
+},[208]);
 //# sourceMappingURL=main.js.map

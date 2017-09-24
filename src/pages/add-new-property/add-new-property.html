@@ -1,50 +1,44 @@
 <ion-content>
-  <div class="property-profile">
-    <div class="overlay">
-      <button ion-button clear (click)="goBack()">
-        <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>
-      </button>
-      <ion-input type="name" placeholder="Property Name" class="title"></ion-input>
-      <ion-input type="address" placeholder="Address" class="subtitle"></ion-input>
-    </div>
-  </div> 
 
-  <ion-list>
-    
-    <ion-item>
-      <ion-label stacked>Rent Amount</ion-label>
-      <ion-input type="rent" placeholder="Rent Amount"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Set Reminder For Rent Due</ion-label>
-      <ion-input type="rent" placeholder="Days Before Due"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Rent Due Date</ion-label>
-      <ion-datetime displayFormat="D" [(ngModel)]="myDate"></ion-datetime>
-    </ion-item>
-
-    <ion-item>
-      <span class="label">Tenant</span>
-      <ion-searchbar (ionInput)="searchTenant($event)"></ion-searchbar>
-      <div class="scrollbar">
-        <ion-list>
-          <ion-item *ngFor="let tenant of tenants">
-            {{ tenant }}
-          </ion-item>
-        </ion-list>
+  <form [formGroup]="property" (ngSubmit)="addProperty()">
+    <div class="property-profile">
+      <div class="overlay">
+        <button ion-button clear (click)="goBack()">
+          <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>
+        </button>
+        <ion-input type="text" formControlName="nickname" placeholder="Property Name"></ion-input>
+        <ion-input type="text" formControlName="address" placeholder="Address"></ion-input>
       </div>
-      <!-- <ion-label stacked>Tenant</ion-label>
-      <ion-select [(ngModel)]="tenants" multiple="true">
-        <ion-option value="Vacant">Vacant</ion-option>
-        <ion-option value="n64">John Smith</ion-option>
-        <ion-option value="ps">Sara</ion-option>
-        <ion-option value="genesis">Sam</ion-option>
-        <ion-option value="saturn">Nicole</ion-option>
-      </ion-select> -->
-    </ion-item>
+    </div> 
 
-  </ion-list>
+<button ion-button item-right (click)="postRequest()">Button</button>
+
+
+    <ion-list>
+      
+      <ion-item>
+        <ion-label stacked>Rent Amount</ion-label>
+        <ion-input type="text" formControlName="rent" placeholder="1,000"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label stacked>Set Reminder For Rent Due</ion-label>
+        <ion-input type="text" formControlName="rentReminder" placeholder="10 days before due"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Rent Due Date</ion-label>
+        <ion-input type="text" formControlName="rentDueDate" placeholder="1st of month"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Tenant</ion-label>
+        <ion-input type="text" formControlName="tenant" placeholder="Amy"></ion-input>
+      </ion-item> -->
+
+    </ion-list>
+
+    <button ion-button type="submit" [disabled]="!property.valid">Submit</button>
+    
+  </form>
 </ion-content>

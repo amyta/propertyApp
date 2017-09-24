@@ -12,7 +12,6 @@ import { AccountPage } from '../pages/account/account';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
   rootPage:any = TabsPage;
 
   public pages: Array<{title: string, component: any}>;

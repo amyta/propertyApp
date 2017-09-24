@@ -16,34 +16,19 @@
   <div #map id="map"></div>
   </div> -->
 
-  <!-- <div class="property-picture" style="background: url('assets/img/house.jpg') center">
-    <div class="overlay" text-center>
-      <h2 style="color: white">Property #1</h2>
-      <p style="color: white">888 Marengo Street Pasadena, Ca 91101</p>
-    </div>
-  </div> -->
-  <ion-card>
+  <button (click)="addProperty()">dfas</button>
+    
+  <ion-card *ngFor="let prop of property">
 
     <div class="property-container" (click)="goPropertyProfile()">
-      <h2>Property #1</h2>
-      <p>888 Marengo Street Pasadena, Ca 91101</p>
-      <!-- <ion-icon style="color: white" name="arrow-forward" large item-end></ion-icon>    -->
+      <h2>{{prop.nickname}}</h2>
+      <p>{{prop.address}}</p>
     </div> 
 
     <ion-item class="border-top" (click)="goRootPage(1)">
       <h2 style="color: #ffa64c">Rent due in (10) days</h2>
-      <p>$3,300</p> 
+      <p>${{prop.rent}}</p> 
     </ion-item>
-
-     <!-- <ion-item class="border-top">
-      <h2>New Messages</h2>
-      <p>Hi Kenny, there seems to be a problem with the garage door.</p><ion-badge color="danger" item-end>3</ion-badge>
-    </ion-item> -->
-
-    <!-- <ion-item class="border-top" (click)="goRootPage(2)">
-      <h2>Repair request</h2><ion-badge color="danger" item-end>1</ion-badge>
-       <p>Garage door</p> 
-    </ion-item>  -->
  
      <ion-row class="border-top" text-center>
       <ion-col>
@@ -52,12 +37,6 @@
           <div>1 repair request</div>
         </button>
       </ion-col>
-      <!-- <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="text" color="primary"></ion-icon>
-          <div>3 New Messages</div>
-        </button>
-      </ion-col> -->
     </ion-row>  
 
   </ion-card>
@@ -66,11 +45,9 @@
     <div class="property-container-2" (click)="goPropertyProfile()">
       <h2>Property #2</h2>
       <p>3581 Whistler Avenue El Monte, Ca 91732</p>
-      <!-- <ion-icon style="color: white" name="arrow-dropright-circle" large (click)="goPropertyProfile()" item-end></ion-icon>   -->
     </div>
 
     <ion-item class="border-top" (click)="goRootPage(1)">
-      <!-- <ion-icon name="checkmark-circle" style="color: #4cc94c" item-start></ion-icon> -->
       <h2 style="color: #4cc94c">Rent paid</h2>
        <ion-icon name="checkmark-circle" style="color: #2DCC70" item-end></ion-icon> 
       <p>$2,100</p> 
