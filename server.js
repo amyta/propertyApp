@@ -4,13 +4,12 @@ var app      = express();                               // create our app w/ exp
 var mongoose = require('mongoose');                     // mongoose for mongodb
 var morgan = require('morgan');             // log requests to the console (express4)
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
-var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var cors = require('cors');
 
 // Configuration
 // mongoose.connect('mongodb://localhost/property');
 
-var url = process.env.MONGODB_URI || 'mongodb://amy:property2017@ds147274.mlab.com:47274/property';
+var url = process.env.MONGODB_URI || 'mongodb://heroku_98pc9zck:jrqer2ulovk1334epv6jqgmskr@ds149134.mlab.com:49134/heroku_98pc9zck';
 // Use connect method to connect to the Server
 mongoose.connect(url, function (error) {
     if (error) console.error(error);
@@ -21,7 +20,6 @@ app.use(morgan('dev'));                                         // log every req
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-app.use(methodOverride());
 app.use(cors());
  
 app.use(function(req, res, next) {
