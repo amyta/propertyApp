@@ -91,7 +91,7 @@ var AddNewPropertyPage = (function () {
             address: this.property.value.address,
             rent: this.property.value.rent
         };
-        this.http.post('https://obscure-reef-64251.herokuapp.com/api/properties', property, { headers: headers })
+        this.http.post('/api/properties', property, { headers: headers })
             .map(function (res) { return res.json(); })
             .subscribe(function (data) {
             console.log(data);

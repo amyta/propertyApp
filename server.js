@@ -49,8 +49,8 @@ app.get("/api/properties", function (req, res) {
 app.post("/api/properties", function (req, res) {
 	var property = {
 		nickname: req.body.nickname,
-		address: red.body.address,
-		rent: red.body.rent
+		address: req.body.address,
+		rent: req.body.rent
 	}
 
 	db.collection("properties").insertOne(property, function (err, doc) {
