@@ -50,7 +50,9 @@ app.post("/api/properties", function (req, res) {
 	var property = {
 		nickname: req.body.nickname,
 		address: req.body.address,
-		rent: req.body.rent
+		rent: req.body.rent,
+		rentReminder: req.body.rentReminder,
+		rentDueDate: req.body.rentDueDate
 	}
 
 	db.collection("properties").insertOne(property, function (err, doc) {

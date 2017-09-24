@@ -1,0 +1,14 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'ordinal',
+})
+
+export class OrdinalPipe implements PipeTransform {
+  transform(n: number, keepNumber: boolean = true) {
+    const ordinals: string[] = ['th','st','nd','rd'];  
+    let v = n % 100;
+    return (keepNumber ? n : '') + ( ordinals[(v - 20) % 10] || ordinals[v] || ordinals[0] );
+  }
+}
+

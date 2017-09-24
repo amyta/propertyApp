@@ -25,6 +25,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LocalstorageProvider } from '../providers/localstorage/localstorage';
+import { OrdinalPipe } from '../pipes/ordinal/ordinal';
+import { PluralPipe } from '../pipes/plural/plural';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { LocalstorageProvider } from '../providers/localstorage/localstorage';
     TabsPage,
     SettingsPage,
     AccountPage,
-    UpdatePhoneNumberPage
+    UpdatePhoneNumberPage,
+    OrdinalPipe,
+    PluralPipe
   ],
   imports: [
     BrowserModule,

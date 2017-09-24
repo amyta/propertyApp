@@ -1,18 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add New Property</ion-title>
+    <ion-buttons start>
+    <button ion-button (click)="goBack()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
 <ion-content>
 
   <form [formGroup]="property" (ngSubmit)="addProperty()">
     <div class="property-profile">
       <div class="overlay">
-        <button ion-button clear (click)="goBack()">
-          <ion-icon name="arrow-back" style="font-size: 2em"></ion-icon>
-        </button>
-        <ion-input type="text" formControlName="nickname" placeholder="Property Name"></ion-input>
+        <ion-input class="title" type="text" formControlName="nickname" placeholder="Property Name"></ion-input>
         <ion-input type="text" formControlName="address" placeholder="Address"></ion-input>
       </div>
-    </div> 
-
-<button ion-button item-right (click)="postRequest()">Button</button>
-
+    </div>
 
     <ion-list>
       
@@ -21,16 +28,20 @@
         <ion-input type="text" formControlName="rent" placeholder="1,000"></ion-input>
       </ion-item>
 
-      <!-- <ion-item>
+      <ion-item>
         <ion-label stacked>Set Reminder For Rent Due</ion-label>
-        <ion-input type="text" formControlName="rentReminder" placeholder="10 days before due"></ion-input>
+        <ion-select formControlName="rentReminder">
+            <ion-option *ngFor="let date of reminderDates">{{date | plural}}</ion-option>
+          </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label stacked>Rent Due Date</ion-label>
-        <ion-input type="text" formControlName="rentDueDate" placeholder="1st of month"></ion-input>
+        <ion-select formControlName="rentDueDate">
+          <ion-option *ngFor="let date of monthDates">{{date | ordinal}}</ion-option>
+        </ion-select>
       </ion-item>
-
+<!-- 
       <ion-item>
         <ion-label stacked>Tenant</ion-label>
         <ion-input type="text" formControlName="tenant" placeholder="Amy"></ion-input>

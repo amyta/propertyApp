@@ -25270,13 +25270,9 @@ page-add-new-property .property-profile {
 
 page-add-new-property .property-profile ion-input.title {
   font-size: 1.7rem;
-  padding-top: 20%;
+  padding-top: 30%;
   margin: 0;
   text-align: center;
-}
-
-page-add-new-property .property-profile ion-input.subtitle {
-  margin: 0;
 }
 
 page-add-new-property .property-profile input.text-input.text-input-ios,

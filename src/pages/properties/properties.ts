@@ -1,75 +1,47 @@
-import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
-import { Storage } from '@ionic/storage';
 import { Http, Headers } from '@angular/http';
+import { ModalController } from 'ionic-angular';
 
 import { AddNewPropertyPage } from '../add-new-property/add-new-property';
 import { PropertyProfilePage } from '../property-profile/property-profile';
-
-import { LocalstorageProvider } from '../../providers/localstorage/localstorage';
-
-// declare var google;
 
 @Component({
   selector: 'page-properties',
   templateUrl: 'properties.html'
 })
 export class PropertiesPage implements OnInit {
-//   @ViewChild('map') mapElement: ElementRef;
-//   public map: any;
   public propertyList: any;
   public property: any;
   public users: any;
 
-	constructor(public navCtrl: NavController, private storage: Storage,
-		private localstorage: LocalstorageProvider, public http: Http) {
+  constructor(public navCtrl: NavController, public http: Http,
+  public modalCtrl: ModalController) {
 		}
 
 	ngOnInit() {
   }
 
-	public getPropertyList() {
-		// this.localstorage.getProperty();
-        this.propertyList = this.localstorage.getProperty();
-        console.log(this.localstorage.getProperty());        
-	}
-
   ionViewDidLoad(){
-		this.http.get('https://obscure-reef-64251.herokuapp.com/api/properties')
-			.map(res => res.json())
-			.subscribe(data => {
-        this.property = data;
-			});
-		
-    // this.loadMap();
+  this.http.get('https://obscure-reef-64251.herokuapp.com/api/properties')
+    .map(res => res.json())
+    .subscribe(data => {
+      this.property = data;
+    });
   }
-
-  // loadMap(){
-  //   this.geolocation.getCurrentPosition().then((position) => {
- 
-  //     let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
- 
-  //     let mapOptions = {
-  //       center: latLng,
-  //       zoom: 15,
-  //       mapTypeId: google.maps.MapTypeId.ROADMAP
-  //     }
-
-  //     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
-  //     let marker = new google.maps.Marker({
-  //       position: latLng,
-  //       map: this.map
-  //     })
-
-  //   }, (err) => {
-  //     console.log(err);
-  //   });
-  // }
     
   public goAddNewProperty() {
-      this.navCtrl.push(AddNewPropertyPage);
+    let modal = this.modalCtrl.create(AddNewPropertyPage);
+    modal.present();
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
   public goPropertyProfile() {
