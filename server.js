@@ -1,94 +1,109 @@
-// Set up
-var express  = require('express');
-var app      = express();                               // create our app w/ express
-var mongoose = require('mongoose');                     // mongoose for mongodb
-var morgan = require('morgan');             // log requests to the console (express4)
-var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
+//server.js (propertyApp/server.js)
+var express = require('express');
+var bodyParser = require('body-parser');
 var cors = require('cors');
+var app = express();
 
-// Configuration
-// mongoose.connect('mongodb://localhost/property');
+var mongodb = require('mongodb'),
+mongoClient = mongodb.MongoClient,
+ObjectID = mongodb.ObjectID, // Used in API endpoints
+db; // We'll initialize connection below
 
-var url = process.env.MONGODB_URI || 'mongodb://heroku_98pc9zck:jrqer2ulovk1334epv6jqgmskr@ds149134.mlab.com:49134/heroku_98pc9zck';
-// Use connect method to connect to the Server
-mongoose.connect(url, function (error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-  });
- 
-app.use(morgan('dev'));                                         // log every request to the console
-app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-app.use(cors());
- 
-app.use(function(req, res, next) {
-   res.header("Access-Control-Allow-Origin", "*");
-   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   next();
+app.use(bodyParser.json());
+app.set('port', process.env.PORT || 8080);
+app.use(cors()); // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
+app.use(express.static("www")); // Our Ionic app build is in the www folder (kept up-to-date by the Ionic CLI using 'ionic serve')
+
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://heroku_98pc9zck:jrqer2ulovk1334epv6jqgmskr@ds149134.mlab.com:49134/heroku_98pc9zck';
+
+// Initialize database connection and then start the server.
+mongoClient.connect(MONGODB_URI, function (err, database) {
+	if (err) {
+	process.exit(1);
+}
+
+db = database; // Our database object from mLab
+
+console.log("Database connection ready");
+
+// Initialize the app.
+app.listen(app.get('port'), function () {
+	console.log("You're a wizard, Harry. I'm a what? Yes, a wizard, on port", app.get('port'));
+	});
 });
- 
-// Models
-var Review = mongoose.model('Property', {
-    nickname: String,
-    address: String,
-    rent: Number
+
+// property API Routes Will Go Below
+
+// GET: retrieve all properties
+app.get("/api/properties", function (req, res) {
+	db.collection("properties").find({}).toArray(function (err, docs) {
+		if (err) {
+			handleError(res, err.message, "Failed to get properties");
+		} else {
+			res.status(200).json(docs);
+		}
+	});
 });
- 
-// Routes
- 
-    // Get reviews
-    app.get('/api/properties', function(req, res) {
- 
-        console.log("fetching properties");
- 
-        // use mongoose to get all reviews in the database
-        Review.find(function(err, properties) {
- 
-            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-            if (err)
-                res.send(err)
- 
-            res.json(properties); // return all reviews in JSON format
-        });
-    });
- 
-    // create review and send back all reviews after creation
-    app.post('/api/properties', function(req, res) {
- 
-        console.log("creating property");
- 
-        // create a review, information comes from request from Ionic
-        Review.create({
-            nickname : req.body.nickname,
-            address : req.body.address,
-            rent: req.body.rent,
-            done : false
-        }, function(err, review) {
-            if (err)
-                res.send(err);
- 
-            // get and return all the reviews after you create another
-            Review.find(function(err, properties) {
-                if (err)
-                    res.send(err)
-                res.json(properties);
-            });
-        });
- 
-    });
- 
-    // delete a review
-    app.delete('/api/properties/:property_id', function(req, res) {
-        Review.remove({
-            _id : req.params.property_id
-        }, function(err, property) {
- 
-        });
-    });
- 
- 
-// listen (start app with node server.js) ======================================
-app.listen(8080);
-console.log("App listening on port 8080");
+
+// POST: create a new property
+app.post("/api/properties", function (req, res) {
+	var Property = mongoose.model('Property', {
+		nickname: String,
+		address: String,
+		rent: Number
+	});
+
+	db.collection("properties").insertOne(Property, function (err, doc) {
+		if (err) {
+			handleError(res, err.message, "Failed to add property");
+		} else {
+			res.status(201).json(doc.ops[0]);
+		}
+	});
+});
+
+/*
+* Endpoint "/api/properties/:id"
+*/
+
+// GET: retrieve a property by id -- Note, not used on front-end
+app.get("/api/properties/:id", function (req, res) {
+	db.collection("properties").findOne({ _id: new ObjectID(req.params.id) }, function (err, doc) {
+		if (err) {
+			handleError(res, err.message, "Failed to get property by _id");
+		} else {
+			res.status(200).json(doc);
+		}
+	});
+});
+
+// PUT: update a property by id
+app.put("/api/properties/:id", function (req, res) {
+	var updateProperty = req.body;
+	delete updateProperty._id;
+
+	db.collection("properties").updateOne({ _id: new ObjectID(req.params.id) }, updateProperty, function (err, doc) {
+		if (err) {
+			handleError(res, err.message, "Failed to update property");
+		} else {
+			res.status(204).end();
+		}
+	});
+});
+
+// DELETE: delete a property by id
+app.delete("/api/properties/:id", function (req, res) {
+	db.collection("properties").deleteOne({ _id: new ObjectID(req.params.id) }, function (err, result) {
+		if (err) {
+			handleError(res, err.message, "Failed to delete property");
+		} else {
+			res.status(204).end();
+		}
+	});
+});
+
+// Error handler for the api
+function handleError(res, reason, message, code) {
+	console.log("API Error: " + reason);
+	res.status(code || 500).json({ "Error": message });
+}
