@@ -33,7 +33,13 @@ export class AddNewPropertyPage {
   let headers = new Headers();
   headers.append('Content-Type', 'application/json');
 
-  this.http.post('http://localhost:8080/api/properties', JSON.stringify(this.property.value), {headers: headers})
+  let property = {
+    nickname: this.property.value.nickname,
+    address: this.property.value.address,
+    rent: this.property.value.rent    
+  }
+
+  this.http.post('https://obscure-reef-64251.herokuapp.com/api/properties', property, {headers: headers})
     .map(res => res.json())
     .subscribe(data => {
       console.log(data)
@@ -51,4 +57,5 @@ export class AddNewPropertyPage {
   public goBack() {
     this.navCtrl.pop()
   }
+
 }

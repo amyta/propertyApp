@@ -86,7 +86,12 @@ var AddNewPropertyPage = (function () {
         debugger;
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        this.http.post('http://localhost:8080/api/properties', JSON.stringify(this.property.value), { headers: headers })
+        var property = {
+            nickname: this.property.value.nickname,
+            address: this.property.value.address,
+            rent: this.property.value.rent
+        };
+        this.http.post('https://obscure-reef-64251.herokuapp.com/api/properties', property, { headers: headers })
             .map(function (res) { return res.json(); })
             .subscribe(function (data) {
             console.log(data);
@@ -488,7 +493,6 @@ var PropertiesPage = (function () {
     };
     PropertiesPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        debugger;
         this.http.get('https://obscure-reef-64251.herokuapp.com/api/properties')
             .map(function (res) { return res.json(); })
             .subscribe(function (data) {

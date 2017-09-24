@@ -47,13 +47,13 @@ app.get("/api/properties", function (req, res) {
 
 // POST: create a new property
 app.post("/api/properties", function (req, res) {
-	var Property = {
-		nickname: String,
-		address: String,
-		rent: Number
+	var property = {
+		nickname: req.body.nickname,
+		address: red.body.address,
+		rent: red.body.rent
 	}
 
-	db.collection("properties").insertOne(Property, function (err, doc) {
+	db.collection("properties").insertOne(property, function (err, doc) {
 		if (err) {
 			handleError(res, err.message, "Failed to add property");
 		} else {

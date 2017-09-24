@@ -36,7 +36,6 @@ export class PropertiesPage implements OnInit {
 	}
 
   ionViewDidLoad(){
-    debugger;
 		this.http.get('https://obscure-reef-64251.herokuapp.com/api/properties')
 			.map(res => res.json())
 			.subscribe(data => {
